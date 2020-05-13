@@ -45,7 +45,7 @@
 		        <th class="col-xs-1">Chọn xem chi tiết</th>
 		    </tr>
 		</thead>
-		<tbody>
+		<tbody id="candidate-info">
 
 		</tbody>
 	</table>

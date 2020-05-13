@@ -1,4 +1,4 @@
-{{-- <form action="" method="">
+<form action="" method="">
 	<div class="form-group">
 		<div  class="panel panel-primary">
 			<div class="panel-heading">Tiêu chí tìm kiếm</div>
@@ -42,9 +42,9 @@
 			 </div>
 		</div>
 	</div>
-</form> --}}
+</form>
 
-<form action="" method="">
+{{-- <form action="" method="">
 	<div class="form-group">
 		<div  class="panel panel-primary">
 			<div class="panel-heading">Tiêu chí tìm kiếm</div>
@@ -60,9 +60,9 @@
 				            <div class="form-group">
 								 <select class="form-control form-control-lg" id="exampleFormControlSelect1 " name="city"  >
 			                          <option value="">Tất cả</option> 
-			                          {{--  @foreach ($cities as $cities)
+			                           @foreach ($cities as $cities)
 			                           <option value="{{$cities->id}}" @if($inputs['city'] == $cities->id){{"selected"}}@endif > {{$cities->name}}</option>  
-			                           @endforeach  --}}
+			                           @endforeach 
 			                    </select>
 							</div>
 				        </div>
@@ -88,4 +88,4 @@
 			 </div>
 		</div>
 	</div>
-</form>
+</form> --}}

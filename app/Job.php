@@ -39,9 +39,4 @@ class Job extends Model
         return $query->get();
     }
 
-
-    public function getSearchModel1(){
-        $query = $this->select('jobs.id','jobs.name as name_job','area.name as name_area' ,'jobs.location','jobs.salary','jobs.unit','jobs.working_date','jobs.number_of_candidate','jobs.description','jobs.benefit','jobs.note','jobs.unit','jobs.contact_phone','jobs.contact_fb','jobs.contact_email')->join('area', 'jobs.location', '=', 'area.id');                     
-        return $query;
-    }
 }

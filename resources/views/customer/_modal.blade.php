@@ -1,3 +1,4 @@
+
 {{-- <div class="modal-content" style="display: none;"> --}}
 
 <div class="modal-content" style="display: none;" id="modal{{$item->id}}">

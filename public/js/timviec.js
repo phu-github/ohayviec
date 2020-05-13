@@ -88,23 +88,25 @@ $(function () {
 			
 			if(data==1){
 				//load json to find-job tab
-				console.log("Đang ở tab 1");
+				//console.log("Đang ở tab 1");
 				fetch_tab("find-job");
 			}else if(data==2){
-				console.log("Đang ở tab 2");
+				//console.log("Đang ở tab 2");
 				fetch_tab("find-candidate");
 			}else if(data==3){
-				console.log("Đang ở tab 3");
+				//console.log("Đang ở tab 3");
 				fetch_tab("post-job");
 			}else{
-				console.log("Đang ở tab 4");
+				//console.log("Đang ở tab 4");
 				fetch_tab("post-profile");
 			}
 		});
 
 		
 		function fetch_tab(name){
+			console.log(name);
 		 	if(name=='find-job'){
+		 		var j=5;
 	 			$.get("home/"+name,function(data){
 					$("#customer-info").empty();
 						var tr="";
@@ -120,27 +122,56 @@ $(function () {
 						$("#customer-info").append(tr);
 					$(document).on('click','#load-job',function(){
 						event.preventDefault();
-						
+						console.log("Click load job");
+						j=j+5;
+						if(j>40) j=0;
+						console.log(j);
+
+						$.ajax({
+			              	url: 'home',
+			              	type: "get",
+			              	data: {viewMoreJob:j},
+			               	success: function(response){ // What to do if we succeed
+			             	if(data == "success")
+			            	alert(response); 
+			        		}
+		            	});
 					});
 				});		
 			}else if(name=='find-candidate'){
+				var j=5;
 			 	$.get("home/"+name,function(data){
 					$("#candidate-info").empty();
 						var tr="";
 						$.each(data, function(i, value){
 							tr += "<tr><td>" + 
-							'aaaa'  + "</td><td>" + 
-							'aaaa' + "</td><td>" + 
-							'aaaa' +"</td><td>" + 
-							'aaaa' +"</td><td>" + 
-							'aaaa' +"</td><td>" + 
-							"CAO" +"</td></tr>";
+							value.name  + "</td><td>" + 
+							value.free_time + "</td><td>" + 
+							value.address +"</td><td>" + 
+							value.old +"</td><td>" + 
+							value.gender +"</td><td>" + 
+							value.name +"</td></tr>";
 						});
 						$("#candidate-info").append(tr);
 					$(document).on('click','#load-candidate',function(){
 						event.preventDefault();
-						
+						console.log("Click load candidate");
+						j=j+5;
+						if(j>40) j=0;
+						console.log(j);
+
+						$.ajax({
+			              	url: 'home',
+			              	type: "get",
+			              	data: {viewMoreCandidate:j},
+			               	success: function(response){ // What to do if we succeed
+			             	if(data == "success")
+			            	alert(response); 
+			        		}
+		            	});
+
 					});
+
 				});		
 			}else if(name=='post-job'){
 

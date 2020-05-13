@@ -12,21 +12,15 @@ use App\Job;
 class JobController extends Controller
 {
     public function getSearch(Request $request){
-    	$area = new Area();
-    	$job = new Job();
-    	$utilComponent = new UtilComponent();
-    	$valueCheckbox = $utilComponent->getValueOfCheckBox($request);
+        $area = new Area();
 		$inputs = [
 	            'keyword' => $request->input('keyword', ''),
 	            'city' => $request->input('city', ''),
 	            'date' => $request->input('date', ''),
 	            'salary' => $request->input('salary', ''),
         ];
-    	
 		$cities = $area->getCityNameModel();
-		$jobSearch = $job->getSearchModel($inputs); 
-		$amountJobs = $job->getSearchModel($inputs)->count();
-    	return view('home1',compact('inputs','cities','jobSearch','amountJobs','valueCheckbox'));
+        return view('home',compact('inputs','cities'));
     }
 
  	public function fetchJsonFindJob(Request $request){
