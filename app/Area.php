@@ -1,0 +1,17 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Area extends Model
+{
+    protected $table = 'area';
+    protected $primaryKey = 'id';
+    //public $timestamps = false;
+
+    public function getCityNameModel(){
+    	$cities = $this->select('id','name')->get();
+		return $cities;
+    }
+}

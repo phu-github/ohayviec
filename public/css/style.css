@@ -1,0 +1,156 @@
+
+*{margin: 0; /*end reset*/
+ padding: 0; 
+ box-sizing: border-box;
+ } /*end reset*/
+html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p{
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+.container-custom { /*Container mông muốn, thay đổi max-width là ok*/
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) {
+  .container-custom {
+    max-width: 90%;
+  }
+}
+
+@media (min-width: 768px) {
+  .container-custom {
+    max-width: 90%;
+  }
+}
+
+@media (min-width: 992px) {
+  .container-custom {
+    max-width: 90%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container-custom {
+    max-width: 90%;
+  }
+}  /*end container-custom*/
+
+
+/*header*/
+span#account {
+    margin-left: 65%;
+}
+
+.navbar {
+    margin-bottom: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    z-index:10;
+}
+.sticky{
+  position: fixed;
+  top:0;
+  left:0;
+  background-color: rgba(255, 255, 255, 1);
+  transition: 0.2s;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+  width: 100%;
+  z-index: 10;
+}
+
+.nav-item{
+	font-weight: 800;
+	text-transform: uppercase;
+} /*end header*/
+
+video.videoPreview {
+    width: 100%;
+    height: 100%;
+    margin-top: -21%;
+}
+
+.wizard-container { /*tab*/
+  padding-top: 0;
+  z-index: 3;
+ }
+
+
+/*Search*/
+/*!
+  https://codepen.io/ranjith555/pen/OyKjjm
+ */
+
+.panel-primary>.panel-heading {
+  background-color:#4caf50;
+  border-color: white;
+}
+
+.panel-primary {
+    box-shadow: 0 5px 60px 0 rgba(0, 0, 0, 0.2);
+    border-color: white;
+}
+
+.btn.btn-custom{
+  background-color: #E57373;
+}
+
+
+input.btn.btn-success.btn-lg {border-radius: 30px;}
+/*end search*/
+/*end tab
+
+/*modal*/
+
+.modal-content{
+  width: 50%;
+  height: auto;
+  background-color: #ecf0f1;
+  border-radius: 4px;
+  opacity: 1;
+  position: relative;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 18px;
+}
+.modal-content h3 {
+    font-weight: bold;
+    text-align: center;
+    position: relative;
+    margin-top: -20px;
+    color: #27ae60;
+    margin-bottom: 10px;
+}
+.row.reset-mp {  
+  margin-right: 0;
+  margin-left: 0;
+  overflow-y: scroll;
+}
+.block-content{
+  background-color: #c8e6c9;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+}
+
+.edit-modal {
+    MIN-HEIGHT: 118PX;
+}
+.edit-modal h4 {
+    color: #1EDB4C;
+    font-size: 2vh;
+    font-weight: bold;
+    margin-top: 10px;
+}
+}
+
+/* end modal*/
+
+/*footer*/
+
+/*end foooter*/
