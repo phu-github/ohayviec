@@ -46,7 +46,7 @@ class CandidateController extends Controller
 	    	return response()->json($canditateSearch);
     	}
     }
-
+    // public function 
 	public function fetchJsonPostProfile(Request $request){
      	if($request->ajax()){
 	     	return 1;

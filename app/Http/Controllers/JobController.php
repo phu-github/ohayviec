@@ -33,13 +33,18 @@ class JobController extends Controller
 	            'date' => $request->input('date', ''),
 	            'salary' => $request->input('salary', ''),
         	];
+            // $viewMoreJob = $request->input('viewMoreJob', 9);
         	$cities = $area->getCityNameModel();
-     	 	$amountJobs = $job->getSearchModel($inputs)->count();
- 	 		$jobSearch = $job->getSearchModel($inputs); 
+     	 	$amountJobs = $job->getSearchModel($inputs,$viewMoreJob)->count();
+ 	 		$jobSearch = $job->getSearchModel($inputs, $viewMoreJob); 
     		return response()->json($jobSearch);
     	}
     }
+    public function fetchViewMoreJob(Request $request){
+        $job = new Job();
+        $viewMoreJob = $request->input('viewMoreJob', '');
 
+    }
 	public function fetchJsonPostJob(Request $request){
      	return 1;
     }

@@ -81,32 +81,31 @@ $(function () {
 		// 	fetch_tab(name);
 		// });
 		
-		fetch_tab("find-job");
+		//fetch_tab("find-job");
 		$(document).on('click','.ajax-tab',function(event){
 			event.preventDefault();
-			var data = $(this).attr('data');  // lây thuoc tinh của the a
-			
-			if(data==1){
+			var dataAttr = $(this).attr('data');  // lây thuoc tinh của the a
+			if(dataAttr==1){
 				//load json to find-job tab
 				//console.log("Đang ở tab 1");
-				fetch_tab("find-job");
-			}else if(data==2){
+				fetch_tab("find-job", dataAttr);
+			}else if(dataAttr==2){
 				//console.log("Đang ở tab 2");
-				fetch_tab("find-candidate");
-			}else if(data==3){
+				fetch_tab("find-candidate", dataAttr);
+			}else if(dataAttr==3){
 				//console.log("Đang ở tab 3");
-				fetch_tab("post-job");
+				fetch_tab("post-job", dataAttr);
 			}else{
 				//console.log("Đang ở tab 4");
-				fetch_tab("post-profile");
+				fetch_tab("post-profile", dataAttr);
 			}
 		});
 
 		
-		function fetch_tab(name){
-			console.log(name);
+		function fetch_tab(name, dataAttr){
+			console.log(name+" "+ dataAttr);
 		 	if(name=='find-job'){
-		 		var j=5;
+		 		var jj=5;
 	 			$.get("home/"+name,function(data){
 					$("#customer-info").empty();
 						var tr="";
@@ -120,26 +119,8 @@ $(function () {
 							"CAO" +"</td></tr>";
 						});
 						$("#customer-info").append(tr);
-					$(document).on('click','#load-job',function(){
-						event.preventDefault();
-						console.log("Click load job");
-						j=j+5;
-						if(j>40) j=0;
-						console.log(j);
-
-						$.ajax({
-			              	url: 'home',
-			              	type: "get",
-			              	data: {viewMoreJob:j},
-			               	success: function(response){ // What to do if we succeed
-			             	if(data == "success")
-			            	alert(response); 
-			        		}
-		            	});
-					});
 				});		
 			}else if(name=='find-candidate'){
-				var j=5;
 			 	$.get("home/"+name,function(data){
 					$("#candidate-info").empty();
 						var tr="";
@@ -153,24 +134,7 @@ $(function () {
 							value.name +"</td></tr>";
 						});
 						$("#candidate-info").append(tr);
-					$(document).on('click','#load-candidate',function(){
-						event.preventDefault();
-						console.log("Click load candidate");
-						j=j+5;
-						if(j>40) j=0;
-						console.log(j);
-
-						$.ajax({
-			              	url: 'home',
-			              	type: "get",
-			              	data: {viewMoreCandidate:j},
-			               	success: function(response){ // What to do if we succeed
-			             	if(data == "success")
-			            	alert(response); 
-			        		}
-		            	});
-
-					});
+					
 
 				});		
 			}else if(name=='post-job'){
@@ -181,4 +145,39 @@ $(function () {
 
 		}
 	// end ajax tab
+	// View more button
+			var k=5;
+			var jj=5;
+			$(document).on('click','#load-job',function(event){
+						event.preventDefault();
+						if(k<40) {
+							k=k+5;
+						}else k=5;
+						console.log("aaa"+k);
+						$.ajax({
+			              	url: 'home/find-job',
+			              	type: "get",
+			              	data: {viewMoreJob:k},
+			               	success: function(response){ // What to do if we succeed
+			             	
+			        		}
+		            	});
+			});
+			$(document).on('click','#load-candidate',function(event){
+						event.preventDefault();
+						if(jj<40) {
+							jj=jj+5;
+						}else jj=5;
+						console.log("bbb"+jj);
+						$.ajax({
+			              	url: 'home/find-candidate',
+			              	type: "get",
+			              	data: {viewMoreCandidate:jj},
+			               	success: function(response){ // What to do if we succeed
+			             	
+			        		}
+		            	});
+
+			});
+	// end view more button
 });
