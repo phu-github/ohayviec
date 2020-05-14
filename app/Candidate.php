@@ -16,7 +16,7 @@ class Candidate extends Model
     ];
 
 
-    public function getCandidateModal($condtion){
+    public function getCandidateModal($condtion, $viewMoreCandidate){
     	$query = $this->select('id', 'name', 'old','gender', 'address','picture','free_time','experiences','contact');
 
     	if(!empty($condition['keywordCan'])){
@@ -33,6 +33,7 @@ class Candidate extends Model
         if(!empty($condition['dateCan'])){
             $query->where('working_date','=', $condition["date"]);
         }   
-        return $query->get();
+        return $query->offset($viewMoreCandidate*2)
+                     ->limit(2)->get();
     }
 }

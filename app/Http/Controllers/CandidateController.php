@@ -9,23 +9,23 @@ use App\Area;
 
 class CandidateController extends Controller
 {
-    public function getSearch(Request $request){
-    	$area =new Area();
-    	$cadidate = new Candidate();
-    	$utilComponent = new UtilComponent();
-    	$valueCheckbox = $utilComponent->getValueOfCheckBox($request);
-		$inputs = [
-	            'keywordCan' => $request->input('keywordCan', ''),
-	            'oldCan' => $request->input('oldCan', ''),
-	            'addressCan' => $request->input('addressCan', ''),
-	            'dateCan' => $request->input('dateCan', ''),
-        ];
+  //   public function getSearch(Request $request){
+  //   	$area =new Area();
+  //   	$cadidate = new Candidate();
+  //   	$utilComponent = new UtilComponent();
+  //   	$valueCheckbox = $utilComponent->getValueOfCheckBox($request);
+		// $inputs = [
+	 //            'keywordCan' => $request->input('keywordCan', ''),
+	 //            'oldCan' => $request->input('oldCan', ''),
+	 //            'addressCan' => $request->input('addressCan', ''),
+	 //            'dateCan' => $request->input('dateCan', ''),
+  //       ];
     	
-		$cities = $area->getCityNameModel();
-		$canditateSearch = $cadidate->getCandidateModal($inputs); 
-		$amountCadidates = $cadidate->getCandidateModal($inputs)->count();
-    	return view('candidate.ungtuyen',compact('inputs','cities','canditateSearch','amountCadidates','valueCheckbox'));
-    }
+		// $cities = $area->getCityNameModel();
+		// $canditateSearch = $cadidate->getCandidateModal($inputs); 
+		// $amountCadidates = $cadidate->getCandidateModal($inputs)->count();
+  //   	return view('candidate.ungtuyen',compact('inputs','cities','canditateSearch','amountCadidates','valueCheckbox'));
+  //   }
 
     public function fetchJsonFindCandidate(Request $request){
      	if($request->ajax()){
@@ -39,14 +39,14 @@ class CandidateController extends Controller
 		            'addressCan' => $request->input('addressCan', ''),
 		            'dateCan' => $request->input('dateCan', ''),
 	        ];
-	    	
+	    	$viewMoreCandidate = $request->input('viewMoreCandidate', 0);
 			$cities = $area->getCityNameModel();
-			$canditateSearch = $cadidate->getCandidateModal($inputs); 
-			$amountCadidates = $cadidate->getCandidateModal($inputs)->count();
+			$canditateSearch = $cadidate->getCandidateModal($inputs,$viewMoreCandidate); 
+			$amountCadidates = $canditateSearch ->count();
 	    	return response()->json($canditateSearch);
     	}
     }
-    // public function 
+
 	public function fetchJsonPostProfile(Request $request){
      	if($request->ajax()){
 	     	return 1;

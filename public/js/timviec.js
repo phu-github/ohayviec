@@ -1,25 +1,5 @@
 $(function () {
-	// fancybox
-	
-	// $('.test').on('click', function() {
-
-	// 	var hasBeenClicked = false;
-	// 	jQuery('#checkboxId').click(function () {
-	// 	    hasBeenClicked = true;
-	// 	    console.log('checkbox đã chọn là: ');
-	// 	});
-
-	// 	if (hasBeenClicked) {
-		    
-	// 	} else {
-		    
-	// 	}
-
-	//   $.fancybox.open( $('.modal-content'), {
-	//     touch: false,
-	//     infobar: false
-	//   });
-	// });
+	//fancybox
 	$('[data-fancybox="gallery"]').fancybox({
 	thumbs : {
 	autoStart : true
@@ -72,7 +52,66 @@ $(function () {
 		// } 
 		
 	// end ajax pagination
-	
+	// View more button
+		var countPageJob=0;
+		var countPageCan=0;
+		$(document).on('click','#load-job',function(event){
+					event.preventDefault();
+					if(countPageJob<10) {
+						countPageJob=countPageJob+1;
+					}else{
+						countPageJob=1;
+						 $("#load-job").hide();
+					}
+					console.log(countPageJob);
+					$.ajax({
+		              	url: 'home/find-job',
+		              	type: "get",
+		              	data: {viewMoreJob:countPageJob},
+		               	success: function(data){ // What to do if we succeed
+		             		console.log(data);
+		             		var tr="";
+							$.each(data, function(i, value){
+							tr += "<tr class="+ "show-modal"+"><td>" + 
+							value.name_job  + "</td><td>" + 
+							value.name_area + "</td><td>" + 
+							value.salary +"</td><td>" + 
+							value.working_date +"</td><td>" + 
+							value.number_of_candidate +"</td><td>" + 
+							value.id +"</td></tr>";
+							});
+							$("#customer-info").append(tr);
+		        		}
+	            	});
+
+
+		});
+		$(document).on('click','#load-candidate',function(event){
+					event.preventDefault();
+					if(countPageCan<40) {
+						countPageCan=countPageCan+1;
+					}else countPageCan=1;
+					console.log(countPageCan);
+					$.ajax({
+		              	url: 'home/find-candidate',
+		              	type: "get",
+		              	data: {viewMoreCandidate:countPageCan},
+		               	success: function(data){ // What to do if we succeed
+		               		var tr="";
+							$.each(data, function(i, value){
+								tr += "<tr class="+ "show-modal"+"><td>" + 
+								value.name  + "</td><td>" + 
+								value.free_time + "</td><td>" + 
+								value.address +"</td><td>" + 
+								value.old +"</td><td>" + 
+								value.gender +"</td><td>" + 
+								value.id +"</td></tr>";
+							});
+						$("#candidate-info").append(tr);
+		        		}
+	            	});
+		});
+	// end view more button
 	// ajax tab
 		// $(document).on('click','.ajax-tab a',function(event){
 		// 	event.preventDefault();
@@ -81,31 +120,25 @@ $(function () {
 		// 	fetch_tab(name);
 		// });
 		
-		//fetch_tab("find-job");
+		fetch_tab("find-job");
 		$(document).on('click','.ajax-tab',function(event){
 			event.preventDefault();
 			var dataAttr = $(this).attr('data');  // lây thuoc tinh của the a
 			if(dataAttr==1){
-				//load json to find-job tab
-				//console.log("Đang ở tab 1");
 				fetch_tab("find-job", dataAttr);
 			}else if(dataAttr==2){
-				//console.log("Đang ở tab 2");
 				fetch_tab("find-candidate", dataAttr);
 			}else if(dataAttr==3){
-				//console.log("Đang ở tab 3");
 				fetch_tab("post-job", dataAttr);
 			}else{
-				//console.log("Đang ở tab 4");
 				fetch_tab("post-profile", dataAttr);
 			}
 		});
 
 		
 		function fetch_tab(name, dataAttr){
-			console.log(name+" "+ dataAttr);
+			console.log(name);
 		 	if(name=='find-job'){
-		 		var jj=5;
 	 			$.get("home/"+name,function(data){
 					$("#customer-info").empty();
 						var tr="";
@@ -116,7 +149,7 @@ $(function () {
 							value.salary +"</td><td>" + 
 							value.working_date +"</td><td>" + 
 							value.number_of_candidate +"</td><td>" + 
-							"CAO" +"</td></tr>";
+							value.id +"</td></tr>";
 						});
 						$("#customer-info").append(tr);
 				});		
@@ -131,7 +164,7 @@ $(function () {
 							value.address +"</td><td>" + 
 							value.old +"</td><td>" + 
 							value.gender +"</td><td>" + 
-							value.name +"</td></tr>";
+							value.id +"</td></tr>";
 						});
 						$("#candidate-info").append(tr);
 					
@@ -145,39 +178,5 @@ $(function () {
 
 		}
 	// end ajax tab
-	// View more button
-			var k=5;
-			var jj=5;
-			$(document).on('click','#load-job',function(event){
-						event.preventDefault();
-						if(k<40) {
-							k=k+5;
-						}else k=5;
-						console.log("aaa"+k);
-						$.ajax({
-			              	url: 'home/find-job',
-			              	type: "get",
-			              	data: {viewMoreJob:k},
-			               	success: function(response){ // What to do if we succeed
-			             	
-			        		}
-		            	});
-			});
-			$(document).on('click','#load-candidate',function(event){
-						event.preventDefault();
-						if(jj<40) {
-							jj=jj+5;
-						}else jj=5;
-						console.log("bbb"+jj);
-						$.ajax({
-			              	url: 'home/find-candidate',
-			              	type: "get",
-			              	data: {viewMoreCandidate:jj},
-			               	success: function(response){ // What to do if we succeed
-			             	
-			        		}
-		            	});
 
-			});
-	// end view more button
 });

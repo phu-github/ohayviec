@@ -36,8 +36,8 @@ class Job extends Model
         if(!empty($condition['date'])){
             $query->where('working_date','=', $condition["date"]);
         }   
-        return $query->offset(0)
-                    ->limit($viewMoreJob)->get();
+        return $query->offset($viewMoreJob*2)
+                    ->limit(2)->get();
     }
 
 }

@@ -18,16 +18,17 @@ Route::get('/',function(){
 });
 
 // end test
-
-Route::get('register','Auth\RegisterController@showRegisterForm');
-Route::get('login','Auth\LoginController@showLoginForm');
+Route::get('account/register','Auth\RegisterController@showRegisterForm');
+Route::get('account/login','Auth\LoginController@showLoginForm');
 
 Route::match(['get','post'],'home','JobController@getSearch')->name('searchJob');
 Route::group(['prefix' => 'home'], function(){
+
 	Route::get( 'find-job', 'JobController@fetchJsonFindJob');
 	Route::get( 'find-candidate', 'CandidateController@fetchJsonFindCandidate');
 	Route::get( 'post-job', 'JobController@fetchJsonPostJob');
 	Route::get( 'post-profile', 'CandidateController@fetchJsonPostProfile');
+
 });
 
 
