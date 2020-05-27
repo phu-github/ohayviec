@@ -18,12 +18,14 @@ Route::get('/',function(){
 });
 
 // end test
-Route::get('account/register','Auth\RegisterController@showRegisterForm');
-Route::get('account/login','Auth\LoginController@showLoginForm');
+// Khu vuecj làm việc
+
+Route::match(['get','post'],'account/login','Auth\AdminController@checkLoginForm');
+Route::match(['get','post'],'account/register','Auth\AdminController@CheckRegisterForm')->name('linkRegister');
 
 Route::match(['get','post'],'home','JobController@getSearch')->name('searchJob');
 Route::group(['prefix' => 'home'], function(){
-
+	Route::get( 'amount-candidate', 'CandidateController@getAmountCandidate');
 	Route::get( 'find-job', 'JobController@fetchJsonFindJob');
 	Route::get( 'find-candidate', 'CandidateController@fetchJsonFindCandidate');
 	Route::get( 'post-job', 'JobController@fetchJsonPostJob');
@@ -31,13 +33,7 @@ Route::group(['prefix' => 'home'], function(){
 
 });
 
-
-
-
-Route::get('home/fetch_data','JobController@fetch_data');
-
-Route::match(['get','post'],'/pagination1','CandidateController@getSearch');
-Route::get('pagination1/fetch_data','CandidateController@fetch_data');
+// end khu vuc lam viec
 
 
 

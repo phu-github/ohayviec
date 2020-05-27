@@ -13,6 +13,7 @@ class JobController extends Controller
 {
     public function getSearch(Request $request){
         $area = new Area();
+        $job = new Job();
 		$inputs = [
 	            'keyword' => $request->input('keyword', ''),
 	            'city' => $request->input('city', ''),
@@ -20,7 +21,8 @@ class JobController extends Controller
 	            'salary' => $request->input('salary', ''),
         ];
 		$cities = $area->getCityNameModel();
-        return view('home',compact('inputs','cities'));
+        $amountJobs =$job->getSearchModel($inputs)->count();
+        return view('home',compact('inputs','cities','amountJobs'));
     }
 
  	public function fetchJsonFindJob(Request $request){
@@ -33,15 +35,11 @@ class JobController extends Controller
 	            'salary' => $request->input('salary', ''),
         	];
             $viewMoreJob = $request->input('viewMoreJob', 0);
- 	 		$jobSearch = $job->getSearchModel($inputs,$viewMoreJob); 
-            $amountJobs =$jobSearch->count();
+ 	 		$jobSearch = $job->getSearchModel($inputs)->offset($viewMoreJob*2)->limit(2)->get();
     		return response()->json($jobSearch);
     	}
     }
     
-	public function fetchJsonPostJob(Request $request){
-     	return 1;
-    }
 
 // Khu vực test, có thể xóa
 		

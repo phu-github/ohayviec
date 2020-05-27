@@ -128,6 +128,9 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'email' => [
+            'unique'=> 'Email đã tồn tại. Vui lòng nhập lại!'
+        ]
     ],
 
     /*

@@ -1,4 +1,0 @@
-{{-- {{dd($cities)}} --}}
-
-
-{{dd($jobSearch)}}

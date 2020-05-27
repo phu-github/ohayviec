@@ -12,7 +12,7 @@
     </div> 
 </div>   --}}              
 
-<h2>Có XXX việc làm part-time</h2>
+<h2>Có <span id="amount-job">{{$amountJobs}}</span> việc làm part-time</h2>
 <p >Những công việc có <i class="fab fa-fedora" style="font-size:24px"></i> là những công việc có phần thưởng khi tuyển dụng</p>
 <div id="content-tab"></div>
 <div class="row">

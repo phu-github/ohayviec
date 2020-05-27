@@ -1,62 +1,121 @@
 @extends('layouts.account')
-@section('content')
-	<div class="container">
-		<div class="row justify-content-md-center">
-		    <div class="col col-md-5 bg-sucess"  >
-		    	<h2>Đăng kí tài khoản</h2>
-		      		<form  method="post" class = 'card p-3 bg-light' action="#">
-		      			<div class="form-row">
-						    <div class="form-group col-md-6">
-						      <input type="search" id="gsearch" class="form-control" placeholder="Họ" name="ho" value="">
-						    </div>
-						    <div class="form-group col-md-6">
-						      <input type="search" id="gsearch" class="form-control" placeholder="Tên" name="ten" value="">
-						    </div>
-					  	</div>
-						<div class="form-row">
-						    <div class="form-group col-md-12">
-						      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nhập email" name="email" value="">
-						    </div>
-						    <div class="form-group col-md-12">
-						      <input type="password" class="form-control" id="inputPassword4" placeholder="Nhập mật khẩu" name="pass" minlength="3" value="">
-						    </div>
-						    <div class="form-group col-md-12">
-						      <input type="password" class="form-control" id="inputPassword4" placeholder="Nhập lại mật khẩu"  name="re_pass" value="">
-						    </div>
-					    </div>
-					    <div class="form-row">
-							<div class="form-group col-md-6">
-						    	<select class="form-control form-control-lg" id="exampleFormControlSelect1 " name="location"  >
-					      		  <option value="">Tất cả</option>
-					      		   
-				    			</select>
-					    	</div>
-						    <div class="form-group col-md-6">
-						    	<input type="search" id="gsearch"  class="form-control"  placeholder="Số điện thoại di động" minlength="8" name="phone" value="">
-					    	</div>
-					    </div>
-					    
-						<div class="form-row">
-							<div class="custom-control custom-radio custom-control-inline">
-								  <input type="radio" id="customRadioInline1" name="gender" class="custom-control-input" value="nam" checked="checked">
-								  <label class="custom-control-label" for="customRadioInline1">Nam</label>
-								</div>
-								<div class="custom-control custom-radio custom-control-inline">
-								  <input type="radio" id="customRadioInline2" name="gender" class="custom-control-input" value="nu">
-								  <label class="custom-control-label" for="customRadioInline2">Nữ</label>
-								</div>
-					    </div>
-					
-						  <button type="submit" class="btn btn-primary" name="btn_register">Đăng kí</button> 
+@section('css')
+<!--===============================================================================================-->	
+<link rel="stylesheet" href="{{asset('plugins/Login_v18/images/icons/favicon.ico')}}" />
+<!--===============================================================================================-->
+<link rel="stylesheet" href="{{asset('plugins/Login_v18/vendor/bootstrap/css/bootstrap.min.css')}}" />
+<!--===============================================================================================-->
+<link rel="stylesheet" href="{{asset('plugins/Login_v18/fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}" />
+<!--===============================================================================================-->
+<link rel="stylesheet" href="{{asset('plugins/Login_v18/fonts/Linearicons-Free-v1.0.0/icon-font.min.css')}}" />
+<!--===============================================================================================-->
+<link rel="stylesheet" href="{{asset('plugins/Login_v18/vendor/animate/animate.css')}}" />
 
-						</form>
-		    </div>
-  		</div>
-	 
+<!--===============================================================================================-->	
+<link rel="stylesheet" href="{{asset('plugins/Login_v18/vendor/css-hamburgers/hamburgers.min.css')}}" />
+<!--===============================================================================================-->
+<link rel="stylesheet" href="{{asset('plugins/Login_v18/vendor/animsition/css/animsition.min.css')}}" />
+<!--===============================================================================================-->
+<link rel="stylesheet" href="{{asset('plugins/Login_v18/vendor/select2/select2.min.css')}}" />
+<!--===============================================================================================-->
+<link rel="stylesheet" href="{{asset('plugins/Login_v18/vendor/daterangepicker/daterangepicker.css')}}" />
+<!--===============================================================================================-->
+<link rel="stylesheet" href="{{asset('plugins/Login_v18/css/util.css')}}" />
+<link rel="stylesheet" href="{{asset('plugins/Login_v18/css/main.css')}}" />
+<!--===============================================================================================-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/icheck-bootstrap@3.0.1/icheck-bootstrap.min.css" />
+<!--===============================================================================================-->
+<link rel="stylesheet" href="{{asset('css/account.css')}}" />
+
+@endsection
+@section('content')
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form method="post" class="login100-form validate-form">
+					<input type="hidden" name="_token" value="{{csrf_token()}}" />
+					<span class="login100-form-title p-b-43">
+						Đăng kí Ohayviec
+					</span>	
+					<div class="who">
+						<div class="radio icheck-success">
+		                    <input type="radio" id="success1" name="priority" value="2" />
+		                    <label for="success1">Nhà tuyển dụng</label>
+		                </div>
+		                <div class="radio icheck-success">
+		                    <input type="radio" checked id="success2" name="priority" value="3"/>
+		                    <label for="success2">Người tìm việc</label>
+		                </div>
+					</div>
+					<div class="wrap-input100 validate-input" >
+						<input id="name100" class="input100" type="text" name="name" value="{{$inputs['name']}}">
+						<span class="focus-input100"></span>
+						<span class="label-input100">Nhập tên</span>
+					</div>
+					
+					<div class="wrap-input100 validate-input" >
+						<input id="email100" class="input100" type="email" name="email" value='{{$inputs['email']}}'>
+						<span class="focus-input100"></span>
+						<span class="label-input100">email</span>
+					</div>
+					<div class="wrap-input100 validate-input" >
+						<input id="pass100" class="input100" type="password" name="pass" value="{{$inputs['pass']}}">
+						<span class="focus-input100"></span>
+						<span class="label-input100">Mật khẩu</span>
+					</div>
+					<div class="wrap-input100 validate-input" >
+						<input id="pass_cf100" class="input100" type="password" name="pass_confirmation" value="{{$inputs['pass_confirmation']}}">
+						<span class="focus-input100"></span>
+						<span class="label-input100">Nhập lại mật khẩu</span>
+					</div>
+					<div class="container-login100-form-btn">
+
+					@if (!empty($msgErrors))
+					    <div class="alert alert-danger">
+					        <ul>
+					            @foreach ($msgErrors as $error)
+					                <li>{{ $error }}</li>
+					            @endforeach
+					        </ul>
+					    </div>
+					@endif
+
+
+						<button class="login100-form-btn">
+							Đăng kí
+						</button>
+					</div>
+				</form>
+
+				<div class="login100-more" style="background-image: url('https://kenh14cdn.com/thumb_w/640/2018/10/25/photo1540463446052-15404634460521888042687.jpg');">
+
+				</div>
+			</div>
+		</div>
 	</div>
+		
 @endsection
 @push('scripts')
-	{{-- <script src="{{asset('js/timviec.js')}}"></script> --}}
+
+	<!--===============================================================================================-->
+	<script src="{{asset('plugins/Login_v18/vendor/jquery/jquery-3.2.1.min.js')}}"></script>
+	<!--===============================================================================================-->
+	<script src="{{asset('plugins/Login_v18/vendor/animsition/js/animsition.min.js')}}"></script>
+	<!--===============================================================================================-->
+	<script src="{{asset('plugins/Login_v18/vendor/bootstrap/js/popper.js')}}"></script>
+	<script src="{{asset('plugins/Login_v18/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+	<!--===============================================================================================-->
+	<script src="{{asset('plugins/Login_v18/vendor/select2/select2.min.js')}}"></script>
+	<!--===============================================================================================-->
+	<script src="{{asset('plugins/Login_v18/vendor/daterangepicker/moment.min.js')}}"></script>
+	<script src="{{asset('plugins/Login_v18/vendor/daterangepicker/daterangepicker.js')}}"></script>
+	<!--===============================================================================================-->
+	<script src="{{asset('plugins/Login_v18/vendor/countdowntime/countdowntime.js')}}"></script>
+	<!--===============================================================================================-->
+	<script src="{{asset('plugins/Login_v18/js/main.js')}}"></script>
+	<!--===============================================================================================-->
+	<script src="{{asset('js/main.js')}}"></script>
+
 @endpush
 
 

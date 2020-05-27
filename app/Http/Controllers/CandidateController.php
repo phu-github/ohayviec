@@ -9,23 +9,20 @@ use App\Area;
 
 class CandidateController extends Controller
 {
-  //   public function getSearch(Request $request){
-  //   	$area =new Area();
-  //   	$cadidate = new Candidate();
-  //   	$utilComponent = new UtilComponent();
-  //   	$valueCheckbox = $utilComponent->getValueOfCheckBox($request);
-		// $inputs = [
-	 //            'keywordCan' => $request->input('keywordCan', ''),
-	 //            'oldCan' => $request->input('oldCan', ''),
-	 //            'addressCan' => $request->input('addressCan', ''),
-	 //            'dateCan' => $request->input('dateCan', ''),
-  //       ];
-    	
-		// $cities = $area->getCityNameModel();
-		// $canditateSearch = $cadidate->getCandidateModal($inputs); 
-		// $amountCadidates = $cadidate->getCandidateModal($inputs)->count();
-  //   	return view('candidate.ungtuyen',compact('inputs','cities','canditateSearch','amountCadidates','valueCheckbox'));
-  //   }
+    public function getAmountCandidate(Request $request){
+    	$area =new Area();
+    	$cadidate = new Candidate();
+		$inputs = [
+	            'keywordCan' => $request->input('keywordCan', ''),
+	            'oldCan' => $request->input('oldCan', ''),
+	            'addressCan' => $request->input('addressCan', ''),
+	            'dateCan' => $request->input('dateCan', ''),
+        ];
+
+		$cities = $area->getCityNameModel();
+		$amountCadidate = $cadidate->getCandidateModal($inputs)->count();
+    	return response()->json($amountCadidate);
+    }
 
     public function fetchJsonFindCandidate(Request $request){
      	if($request->ajax()){
@@ -41,8 +38,7 @@ class CandidateController extends Controller
 	        ];
 	    	$viewMoreCandidate = $request->input('viewMoreCandidate', 0);
 			$cities = $area->getCityNameModel();
-			$canditateSearch = $cadidate->getCandidateModal($inputs,$viewMoreCandidate); 
-			$amountCadidates = $canditateSearch ->count();
+			$canditateSearch = $cadidate->getCandidateModal($inputs)->offset($viewMoreCandidate*10)->limit(10)->get(); 
 	    	return response()->json($canditateSearch);
     	}
     }

@@ -15,8 +15,11 @@ class User extends Authenticatable
      *
      * @var array
      */
+    protected $table ="users";
+    protected $primaryKey = 'id'; 
+    
     protected $fillable = [
-        'name', 'email', 'password',
+        'email', 'password',
     ];
 
     /**
@@ -27,4 +30,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    //insert dữ liệu khi đăng kí thành công
+    public function storeModel($condition){ 
+
+        $query = $this->insert(
+            ['name' => $condition['name'], 'email' => $condition['email'] ,'password' => $condition['pass'], 'priority' =>$condition['priority'] ]
+        );
+
+        return $query;
+    }
 }

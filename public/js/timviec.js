@@ -1,4 +1,14 @@
 $(function () {
+	// account
+	//$('.account-box-content').slideUp();
+
+	$('.nav-item-avatar').click(function(event) {
+		$('.account-box-content').slideToggle();
+		
+	});
+	// END ACOUNT
+
+
 	//fancybox
 	$('[data-fancybox="gallery"]').fancybox({
 	thumbs : {
@@ -9,61 +19,22 @@ $(function () {
 	smallBtn : true,
 	});
 	// end fancybox
-
-   
+  
 	// datetimepicker
 	    $('#datetimepicker1').datetimepicker({ 
 	    });
     // end datetimepicker
 
-    // ajax pagination
-		// $(document).on('click','.pagination a',function(event){
-		// 	event.preventDefault();
-		// 	var page = $(this).attr('href').split("page=")[1];  // lay ve so trang
-		// 	//console.log(page);
-		// 	fetch_data(page);
-		// 	fetch_data1(page);
-		// });
-
-		// function fetch_data(page){
-			
-		// 	$.ajax({
-		// 		url: "/home/fetch_data/?page="+page,
-		// 		async:false,
-	 //            success:function(jobSearch)
-	 //            {
-	 //                $('#table_data').html(jobSearch);
-	 //            }
-
-	 //        });
-		// } 
-
-		// function fetch_data1(page){
-			
-		// 	$.ajax({
-		// 		url: "/pagination1/fetch_data/?page="+page,
-		// 		async:false,
-	 //            success:function(candidateSearch)
-	 //            {
-	 //                $('#table_data1').html(candidateSearch);
-	 //            }
-
-	 //        });
-		// } 
-		
-	// end ajax pagination
 	// View more button
-		var countPageJob=0;
-		var countPageCan=0;
+		var countPageJob= 0;
+		var countPageCan= 0;
+		var hideViewMoreJob = 0;
+		var hideViewMoreCan = 0;
 		$(document).on('click','#load-job',function(event){
 					event.preventDefault();
-					if(countPageJob<10) {
-						countPageJob=countPageJob+1;
-					}else{
-						countPageJob=1;
-						 $("#load-job").hide();
-					}
-					console.log(countPageJob);
+					var limit = 2;
+					var amountJob = $('#amount-job').text();
+					countPageJob=countPageJob+1;
 					$.ajax({
 		              	url: 'home/find-job',
 		              	type: "get",
@@ -83,15 +54,16 @@ $(function () {
 							$("#customer-info").append(tr);
 		        		}
 	            	});
-
-
+					if(countPageJob==Math.ceil(amountJob/limit)-1) {
+						$("#load-job").hide();
+						countPageJob=0;
+					}
 		});
 		$(document).on('click','#load-candidate',function(event){
 					event.preventDefault();
-					if(countPageCan<40) {
-						countPageCan=countPageCan+1;
-					}else countPageCan=1;
-					console.log(countPageCan);
+					var limit = 10;
+					var amountcandidate = $('#amount-candidate').text();
+					countPageCan=countPageCan+1;
 					$.ajax({
 		              	url: 'home/find-candidate',
 		              	type: "get",
@@ -110,23 +82,25 @@ $(function () {
 						$("#candidate-info").append(tr);
 		        		}
 	            	});
+            		if(countPageCan==Math.ceil(amountcandidate/limit)-1) {
+						$("#load-candidate").hide();
+						countPageCan=0;
+					}
+					//console.log("hideViewMoreCan = "+ hideViewMoreCan);
+					console.log(countPageCan);
 		});
 	// end view more button
 	// ajax tab
-		// $(document).on('click','.ajax-tab a',function(event){
-		// 	event.preventDefault();
-		// 	var name = $(this).attr('href').split("#")[1];  // lây thuoc tinh của the a
-		// 	console.log(name);
-		// 	fetch_tab(name);
-		// });
-		
 		fetch_tab("find-job");
 		$(document).on('click','.ajax-tab',function(event){
 			event.preventDefault();
+
 			var dataAttr = $(this).attr('data');  // lây thuoc tinh của the a
 			if(dataAttr==1){
+				$("#load-job").show();
 				fetch_tab("find-job", dataAttr);
 			}else if(dataAttr==2){
+				$("#load-candidate").show();
 				fetch_tab("find-candidate", dataAttr);
 			}else if(dataAttr==3){
 				fetch_tab("post-job", dataAttr);
@@ -169,7 +143,14 @@ $(function () {
 						$("#candidate-info").append(tr);
 					
 
-				});		
+				});	
+				$.ajax({
+		              	url: 'home/amount-candidate',
+		              	type: "get",
+		               	success: function(data){ // What to do if we succeed
+							$("#amount-candidate").html(data);
+		        		}
+            	});		
 			}else if(name=='post-job'){
 
 			}else if(name='post-profile'){

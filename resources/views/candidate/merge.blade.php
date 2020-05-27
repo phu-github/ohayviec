@@ -13,7 +13,7 @@
 
 
 
-<h2>Có XXX người đăng ứng tuyển</h2>
+<h2>Có <span id="amount-candidate"></span> người đăng ứng tuyển</h2>
 <p >Những người có <i class="fab fa-fedora" style="font-size:24px"></i> là những người có uy tín cao</p>
 <div id="content-tab"></div>
 <div class="row">

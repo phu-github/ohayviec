@@ -19,7 +19,7 @@ class Job extends Model
     'level_job','image',
     ];
 
-    public function getSearchModel($condition, $viewMoreJob){
+    public function getSearchModel($condition){
         $query = $this->select('jobs.id','jobs.name as name_job','area.name as name_area' ,'jobs.location','jobs.salary','jobs.unit','jobs.working_date','jobs.number_of_candidate','jobs.description','jobs.benefit','jobs.note','jobs.unit','jobs.contact_phone','jobs.contact_fb','jobs.contact_email')->join('area', 'jobs.location', '=', 'area.id');                     
 
         if(!empty($condition['keyword'])){
@@ -36,8 +36,7 @@ class Job extends Model
         if(!empty($condition['date'])){
             $query->where('working_date','=', $condition["date"]);
         }   
-        return $query->offset($viewMoreJob*2)
-                    ->limit(2)->get();
+        return $query;
     }
 
 }
