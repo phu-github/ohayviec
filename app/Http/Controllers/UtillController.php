@@ -14,7 +14,6 @@ class UtillController extends Controller
     public function index(Request $request){
     	$job = new Job();
     	$cadidate = new Candidate();
-    	
     	return view('home',compact('inputs','cities','amountJobs','amountCadidates'));
     }
 }

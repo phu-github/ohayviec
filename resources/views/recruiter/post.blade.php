@@ -1,7 +1,7 @@
 <div id="content-post" style="text-align: center">
     <div class="row">
         <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 form-box">
-        	<form role="form" action="" method="post" class="f1">
+        	<form  method="get" class="f1">
 
         		<h3>Bắt đầu đăng tin</h3>
         		<div class="f1-steps">
@@ -33,35 +33,32 @@
                 <fieldset>
                     <div class="form-row">
                         <div class="form-group col-sm-12 col-md-6 ">
-                            <label class="sr-only" for="f1-name">Công việc</label>
-                            <input type="text" name="f1-name" placeholder="Nhập công việc..." class="f1-name form-control" id="f1-name">
+                            <input type="text" class="form-control" placeholder="Nhập công việc..." name="name" value="">
                         </div>
                         <div class="form-group col-sm-12 col-md-6">
-                            <label class="sr-only" for="f1-address">Tỉnh/huyện</label>
-                            <input type="text" name="f1-address" placeholder="Nhập quận/huyện..." class="f1-address form-control" id="f1-address">
+                            <input type="text" class="form-control" placeholder="Nhập tỉnh/huyện" name="address" value="">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-sm-12 col-md-6">
-                            <label class="sr-only" for="f1-salary">Mức lương</label>
-                            <input type="text" name="f1-salary" placeholder="Nhập mức lương..." class="f1-salary form-control" id="f1-salary">
+                            <input type="text" class="form-control" placeholder="Nhập mức lương..." name="salary" value="">
                         </div>
                         <div class="form-group col-sm-12 col-md-6">
                             <label class="sr-only" for="f1-working-date">Thời gian</label>
-                            <input type="text" name="f1-working-date" placeholder="Nhập ngày đi làm..." class="f1-working-date form-control" id="f1-salary">
+                            <input type="text" placeholder="Nhập ngày đi làm..." class="f1-working-date form-control" id="f1-salary" name="working_date" value="">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="f1-description">Mô tả công việc</label>
-                        <textarea class="f1-description form-control" name="f1-description" id="f1-description" rows="3"></textarea>
+                        <textarea class="form-control" rows="3" placeholder="- Làm vệ sinh toàn bộ thang máy..." name="description" value=""></textarea>
                     </div>
                     <div class="form-group">
                         <label for="f1-note">Yêu cầu</label>
-                        <textarea class="f1-note form-control" id="f1-note" rows="3" ></textarea>
+                        <textarea class="form-control" rows="3" placeholder="-Quần đùi, áo dài tay,..." name="note" value="post.blade.php"></textarea>
                     </div>
                     <div class="form-group">
                         <label for="f1-contact">Liên hệ</label>
-                        <textarea class="f1-contact form-control" id="f1-contact" rows="3" ></textarea>
+                        <textarea class="form-control" rows="3" placeholder="-sdt: 0366212191" name="contact" value="#"></textarea>
                     </div>
                     <div class="f1-buttons">
                         <button type="button" class="btn btn-previous-step">Lùi lại</button>
@@ -70,11 +67,11 @@
                 </fieldset>
 
                 <fieldset>
-                    <h4>Thành công!</h4>
+                    <h3 id="fisnish_title">Xác nhận đăng tin</h3>
                     <a href="http://ohayviec.com/home/register">Vui lòng vào tài khoản của bạn để chỉnh sửa tin</a>
-                    <div class="f1-buttons">
+                    <div class=" form-group f1-buttons">
                         <button type="button" class="btn btn-previous-step">Lùi lại</button>
-                        <button type="submit" class="btn btn-submit-step">Kết thúc</button>
+                        <button type="submit" class="btn btn-submit-step">Xác nhận</button>
                     </div>
                 </fieldset>
         	

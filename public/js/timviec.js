@@ -152,6 +152,7 @@ $(function () {
 		        		}
             	});		
 			}else if(name=='post-job'){
+				
 
 			}else if(name='post-profile'){
 

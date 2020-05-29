@@ -31,6 +31,13 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+
+    public function insertJobModel($condition){
+        $query = this ->insert(['name'=>$condition['name'], 'address'=>$condition['address'], 'salary'=>$condition['salary'], 'working_date'=>$condition['working_date'], 'description'=>$condition['description'], 'note'=>$condition['note'],'contact'=>$condition['contact']]);
+
+        return $query;
+    }
+
     //insert dữ liệu khi đăng kí thành công
     public function storeModel($condition){ 
 

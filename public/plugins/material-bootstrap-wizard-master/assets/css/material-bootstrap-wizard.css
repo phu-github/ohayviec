@@ -274,8 +274,8 @@ h2.title {
   .wizard-card[data-color="green"] .choice:hover .icon, .wizard-card[data-color="green"] .choice.active .icon {
     border-color: #4caf50;
     color: #4caf50; }
-  .wizard-card[data-color="green"] .form-group .form-control {
-    background-image: linear-gradient(#4caf50, #4caf50), linear-gradient(#D2D2D2, #D2D2D2); }
+  /*.wizard-card[data-color="green"] .form-group .form-control {
+    background-image: linear-gradient(#4caf50, #4caf50), linear-gradient(#D2D2D2, #D2D2D2); }*/
   .wizard-card[data-color="green"] .checkbox input[type=checkbox]:checked + .checkbox-material .check {
     background-color: #4caf50; }
   .wizard-card[data-color="green"] .radio input[type=radio]:checked ~ .check {
@@ -543,7 +543,7 @@ output {
   .label.label-rose {
     background-color: #e91e63; }
 
-.form-control,
+/*.form-control,
 .form-group .form-control {
   border: 0;
   background-image: linear-gradient(#9c27b0, #9c27b0), linear-gradient(#D2D2D2, #D2D2D2);
@@ -671,7 +671,7 @@ output {
     line-height: 1.42857;
     color: #AAAAAA;
     font-weight: 400; }
-
+*/
 .checkbox label,
 .radio label,
 label {
@@ -731,11 +731,11 @@ label.control-label {
     top: -7px;
     font-size: 14px;
     line-height: 1.42857; }
-  .form-group.label-static label.control-label, .form-group.label-floating.is-focused label.control-label, .form-group.label-floating:not(.is-empty) label.control-label {
+ /* .form-group.label-static label.control-label, .form-group.label-floating.is-focused label.control-label, .form-group.label-floating:not(.is-empty) label.control-label {
     top: -28px;
     left: 0;
     font-size: 11px;
-    line-height: 1.07143; }
+    line-height: 1.07143; }*/
   .form-group.label-floating input.form-control:-webkit-autofill ~ label.control-label label.control-label {
     top: -28px;
     left: 0;
@@ -782,11 +782,11 @@ label.control-label {
     top: -11px;
     font-size: 11px;
     line-height: 1.5; }
-  .form-group.form-group-sm.label-static label.control-label, .form-group.form-group-sm.label-floating.is-focused label.control-label, .form-group.form-group-sm.label-floating:not(.is-empty) label.control-label {
+ /* .form-group.form-group-sm.label-static label.control-label, .form-group.form-group-sm.label-floating.is-focused label.control-label, .form-group.form-group-sm.label-floating:not(.is-empty) label.control-label {
     top: -25px;
     left: 0;
     font-size: 9px;
-    line-height: 1.125; }
+    line-height: 1.125; }*/
   .form-group.form-group-sm.label-floating input.form-control:-webkit-autofill ~ label.control-label label.control-label {
     top: -25px;
     left: 0;
@@ -832,12 +832,12 @@ label.control-label {
   .form-group.form-group-lg.label-floating label.control-label, .form-group.form-group-lg.label-placeholder label.control-label {
     top: -5px;
     font-size: 18px;
-    line-height: 1.33333; }
+    line-height: 1.33333; }/*
   .form-group.form-group-lg.label-static label.control-label, .form-group.form-group-lg.label-floating.is-focused label.control-label, .form-group.form-group-lg.label-floating:not(.is-empty) label.control-label {
     top: -32px;
     left: 0;
     font-size: 14px;
-    line-height: 1.0; }
+    line-height: 1.0; }*/
   .form-group.form-group-lg.label-floating input.form-control:-webkit-autofill ~ label.control-label label.control-label {
     top: -32px;
     left: 0;

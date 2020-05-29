@@ -13,6 +13,9 @@
 	<link rel="stylesheet" href="{{asset('plugins/material-bootstrap-wizard-master/assets/css/bootstrap.min.css')}}" />
 	<link rel="stylesheet" href="{{asset('plugins/material-bootstrap-wizard-master/assets/css/material-bootstrap-wizard.css')}}" />
 	<link rel="stylesheet" href="{{asset('plugins/icheck-bootstrap/icheck-bootstrap.css')}}" /> {{-- icheck-bootstrap --}}
+	 <!-- Font Awesome -->
+    <link rel="stylesheet" href="{{asset('plugins/AdminLTE_302/plugins/fontawesome-free/css/all.min.css')}}">
+
 	@yield('css')
 	<link rel="stylesheet" href="{{asset('css/style.css')}}"  type="text/css" /> <!--css-->
 </head>

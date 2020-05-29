@@ -245,8 +245,32 @@ p.mini-title {
   	border-color: white;
 }
 
+.card-customer{
+    box-shadow: 0 0 1px rgba(0,0,0,.125), 0 1px 3px rgba(0,0,0,.2);
+    margin-bottom: 1rem;
+}
+
+.card-warning:not(.card-outline)>.card-header {
+    background-color: #4caf50;
+    box-shadow: 0 16px 26px -10px rgba(76, 175, 80, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(76, 175, 80, 0.2);
+}
+
+h3.card-title {
+    font-family: "Source Sans Pro",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 20;
+    font-weight: 600;
+    line-height: 1.5;
+    font-size: 16px;
+    color: white;
+}
+
+
 .btn.btn-custom{
-  	background-color: #E57373;
+  	background-color: #4caf50;
+    color: #FFFFFF;
+  	display:flex;
+  	border-radius: 30px;
+  	justify-content: center;
 }
 
 
@@ -292,9 +316,9 @@ input.btn.btn-success.btn-lg {border-radius: 30px;}
 	font-size: 2vh;
 	font-weight: bold;
 	margin-top: 10px;
-	}
 }
-4
+
+
 
 /* end modal*/
 
@@ -303,7 +327,15 @@ input.btn.btn-success.btn-lg {border-radius: 30px;}
 /*End Button scroll */
 
 /*Post job*/
-
+#fisnish_title{
+	margin-top: 40PX;
+    margin-bottom: 40px;
+	color: #4caf50; 
+	font-weight: bolder;
+	color: green;
+    display: flex;
+    justify-content: center;
+}
 /*end post job*/
 
 /*footer*/

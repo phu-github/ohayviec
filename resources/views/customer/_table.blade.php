@@ -2,12 +2,12 @@
 	<table class="table table-hover">
 		<thead>
 		    <tr>
-		        <th class="col-xs-1">Tên công việc</th>
-		        <th class="col-xs-1">Địa chỉ</th>
-		        <th class="col-xs-1">Lương</th>
-		        <th class="col-xs-1">Ngày đi làm</th>
-		        <th class="col-xs-1">Số lượng</th>
-		        <th class="col-xs-1">Mức độ uy tín</th>
+		        <th class="col-xs-1 table-primary">Tên công việc</th>
+		        <th class="col-xs-1 table-secondary">Địa chỉ</th>
+		        <th class="col-xs-1 table-success">Lương</th>
+		        <th class="col-xs-1 table-danger">Ngày đi làm</th>
+		        <th class="col-xs-1 table-warning">Số lượng</th>
+		        <th class="col-xs-1 table-info">Mức độ uy tín</th>
 		    </tr>
 		</thead>
 		<tbody id="customer-info">

@@ -13,13 +13,12 @@
 
 
 // Khu vực test
-Route::get('/',function(){
-	return view("test");
-});
+Route::get('/admin','Admin\UserController@view');
 
 // end test
-// Khu vuecj làm việc
 
+
+// Khu vuecj làm việc
 Route::match(['get','post'],'account/login','Auth\AdminController@checkLoginForm');
 Route::match(['get','post'],'account/register','Auth\AdminController@CheckRegisterForm')->name('linkRegister');
 
@@ -36,4 +35,11 @@ Route::group(['prefix' => 'home'], function(){
 // end khu vuc lam viec
 
 
+Route::group(['middleware' => ['auth.user']], function () {
+    
+});
 
+
+Route::group(['middleware' => ['auth.admin']], function () {
+    
+});

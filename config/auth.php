@@ -45,6 +45,23 @@ return [
             'driver' => 'token',
             'provider' => 'users',
         ],
+        //đang Test
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
+        'candidate' => [
+            'driver' => 'session',
+            'provider' => 'candidates',
+        ],
+
+        'recruiter' => [
+            'driver' => 'session',
+            'provider' => 'recruiters',
+        ],
+
+
+
     ],
 
     /*
@@ -74,6 +91,18 @@ return [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Admin::class,
+        ],
+        'candidates' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Candidate::class,
+        ],
+        'recruiters' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Recruiter::class,
+        ],
     ],
 
     /*
