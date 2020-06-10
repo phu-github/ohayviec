@@ -45,11 +45,11 @@
 		        <th class="col-xs-1 table-info">Chọn xem chi tiết</th>
 		    </tr>
 		</thead>
-		<tbody id="candidate-info">
+		<tbody id="candidate_info">
 			
 		</tbody>
 	</table>
 	<div class="row justify-content-sm-center justify-content-md-center">
-		<input class="btn btn-success btn-lg" type="submit" name="xemthem" value="XEM THÊM" id="load-candidate">
+		<input class="btn btn-success btn-lg" type="submit" name="xemthem" value="XEM THÊM" id="btn_view_more_candidate">
 	</div>	
 </div>

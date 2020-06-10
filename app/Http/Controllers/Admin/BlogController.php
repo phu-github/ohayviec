@@ -3,14 +3,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Job;
+use Blog;
 
-class JobController extends Controller
+class BlogController extends Controller
 {
     public function view(){
-    	$job = new Job();
-    	$jobData = $job->getSearchModel(null)->paginate(7);
-    	return view('admin.job', compact('jobData'));
+    	return view('admin.blog');
     }
     public function edit(){
     	return view('');
@@ -19,4 +17,3 @@ class JobController extends Controller
 		return view('');
     }
 }
-

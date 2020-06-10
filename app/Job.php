@@ -20,7 +20,9 @@ class Job extends Model
     ];
 
     public function getSearchModel($condition){
-        $query = $this->select('jobs.id','jobs.name as name_job','area.name as name_area' ,'jobs.location','jobs.salary','jobs.unit','jobs.working_date','jobs.number_of_candidate','jobs.description','jobs.benefit','jobs.note','jobs.unit','jobs.contact_phone','jobs.contact_fb','jobs.contact_email')->join('area', 'jobs.location', '=', 'area.id');                     
+        // dd($condition);
+        $query = $this->select('jobs.id','jobs.name as name_job','area.name as name_area' ,'jobs.location','jobs.salary','jobs.unit','jobs.working_date','jobs.number_of_candidate','jobs.description','jobs.benefit','jobs.note','jobs.unit','jobs.contact_phone','jobs.contact_fb','jobs.contact_email', 'user_id')  
+            ->join('area', 'jobs.location', '=', 'area.id');                     
 
         if(!empty($condition['keyword'])){
             $query-> where('jobs.name','like', '%'.$condition["keyword"].'%');
@@ -33,9 +35,15 @@ class Job extends Model
         if(!empty($condition['salary'])){
         	$query-> where('jobs.salary','like', '%'.$condition["salary"].'%');
         } 
-        if(!empty($condition['date'])){
-            $query->where('working_date','=', $condition["date"]);
+        if(!empty($condition['working_date'])){
+            $query->where('jobs.working_date','=', $condition["working_date"]);
         }   
+        return $query;
+    }
+
+    public function postJobModel($condition){
+        $query = $this ->insert(['name'=>$condition['name'], 'address'=>$condition['address'], 'salary'=>$condition['salary'], 'working_date'=>$condition['working_date'], 'description'=>$condition['description'], 'note'=>$condition['note'],'contact'=>$condition['contact']]);
+
         return $query;
     }
 

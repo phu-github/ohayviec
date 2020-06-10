@@ -5,7 +5,8 @@
   </div>
   <!-- /.card-header -->
   <div class="card-body">
-    <form role="form">
+    <form method="post" id="search_candidate_form">
+      @csrf
       <div class="row">
         <div class="col-sm-6">
           <!-- text input -->
@@ -22,7 +23,7 @@
         <div class="col-sm-6">
           <div class="form-group">
             <label class="col-form-label" for="inputWarning"><i class="far fa-bell"></i>Ngày rãnh?</label>
-            <input type="text" class="form-control is-warning" id='datetimepicker1' name="" value="" placeholder="2020/09/25...">
+            <input id="mutiselectdate_candidate" class="flatpickr flatpickr-input form-control active" type="text" placeholder="Chọn lịch.." data-id="enableFunction" readonly="readonly" name="dateCan" value="">
           </div>
         </div>
       </div>
@@ -30,7 +31,7 @@
         <div class="col-sm-6">
           <div class="form-group">
             <label class="col-form-label" for="inputWarning"><i class="fab fa-airbnb"></i>Giới tính?</label>
-            <input type="text" class="form-control is-warning" name='keywordCan' value="" placeholder="nam...">
+            <input type="text" class="form-control is-warning" name='genderCan' value="" placeholder="nam...">
           </div>
         </div>
         <div class="col-sm-6">
@@ -40,7 +41,7 @@
         </div>
         </div>
       </div>
-      <input type="submit" class="btn btn-custom" value="Tìm kiếm">
+      <input type="submit" class="btn btn-custom" id="btn_search_candidate_form" value="Tìm kiếm">
     </form>
   </div>
   <!-- /.card-body -->

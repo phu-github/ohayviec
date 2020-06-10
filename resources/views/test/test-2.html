@@ -1,59 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-	<style>
-
-	</style>
+    <head>
+  <title>Using Flatpickr</title>
+<!--  Flatpicker Styles  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.2.3/flatpickr.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.2.3/themes/dark.css">
 </head>
 <body>
-	<!-- Top Menu -->
-	<nav class="panel top small main-menu">
-		<div class="sections desktop">
-			<div class="left">
-				<ul class="menu">
-					<li><a class="sidebarTrigger" data-sidebar-id="categories"><i class="material-icons small">&#xE0B8;</i><span class="hideForTablet"> Articles</span></a></li>
-					<li><a href="https://designmodo.com/products/" data-wpel-link="internal">Products</a></li>
-					<li><a href="http://market.designmodo.com" data-wpel-link="exclude">Market</a></li>
-					<li><a href="https://designmodo.com/jobs/" data-wpel-link="internal">Jobs</a></li>
-				</ul>
-			</div>
-			<div class="center">
-				<a href="https://designmodo.com" title="Designmodo" class="logo" data-wpel-link="internal"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#logo-text"></use></svg></a>
-			</div>
-			<div class="right">
-				<ul class="menu crop">
-					<li><a class="dropdownTrigger" data-dropdown-id="follow-us">Follow Us</a></li>
-					<li class="icon-element"><a class="search-link popupTrigger" data-popup-id="search"><i class="material-icons">&#xE8B6;</i></a></li>
-					<li class="icon-element"><a class="cart-link sidebarTrigger" data-sidebar-id="cart"><i class="material-icons">&#xE8CC;</i></a></li>
-					<li class="icon-element"><a class="account-link sidebarTrigger" data-sidebar-id="account"><i class="material-icons">&#xE853;</i></a></li>
-				</ul>
-			</div>
-		</div>
-		<div class="sections compact hidden">
-			<div class="left">
-				<ul class="menu">
-					<li><a class="sidebarTrigger" data-sidebar-id="categories"><i class="material-icons">&#xE0B8;</i></a></li>
-					<li><a href="https://designmodo.com" title="Designmodo" class="logo" data-wpel-link="internal"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#logo-text"></use></svg></a></li>
-				</ul>
-			</div>
-			<div class="right">
-				<ul class="menu crop">
-					<li><a class="search-link popupTrigger" data-popup-id="search"><i class="material-icons">&#xE8B6;</i></a></li>
-					<li><a class="cart-link sidebarTrigger" data-sidebar-id="cart"><i class="material-icons">&#xE8CC;</i></a></li>
-					<li><a class="account-link sidebarTrigger" data-sidebar-id="account"><i class="material-icons">&#xE853;</i></a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+  <img src="https://chmln.github.io/flatpickr/images/logo.png" alt="flatpickr">
+  <h1>Flatpickr</h1>
+  <hr>
+  <div>
+    <h2>Basic DateTime</h2>
+    <input type="text" id="basicDate" placeholder="Please select Date Time" data-input>
 
-<!-- Top Menu -->
+    <h2>Range Datetime</h2>
+    <input type="text" id="rangeDate" placeholder="Please select Date Range" data-input>
 
+    <h2>Time Picker</h2>
+    <input type="text" id="timePicker" placeholder="Please select Time">
+  </div>
+  <h2>Week Number with Reset Date</h2>
+  <div class=resetDate>
+    <input type="text" placeholder="Select Date.." data-input>
+    <button class="input-button" title="clear" data-clear>RESET</button>
+</div>
+
+    <!-- jQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!--  Flatpickr  -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.2.3/flatpickr.js"></script>
+    <script>
+
+    
+      $("#basicDate").flatpickr({
+    enableTime: true,
+    dateFormat: "F, d Y H:i"
+});
+
+$("#rangeDate").flatpickr({
+    mode: 'range',
+    dateFormat: "Y-m-d"
+});
+
+$("#timePicker").flatpickr({
+    enableTime: true,
+    noCalendar: true,
+    time_24hr: true,
+    dateFormat: "H:i",
+});
+
+$(".resetDate").flatpickr({
+    wrap: true,
+    weekNumbers: true,
+});
+  </script>
 </body>
-</html>

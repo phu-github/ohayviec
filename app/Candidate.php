@@ -12,26 +12,32 @@ class Candidate extends Model
     protected $fillable = [
     	'id','name','old','gender','address',
     	'picture','free_time','experiences',
-    	'contact', 'status',
+    	'contact', 'status', 'user_id',
     ];
 
     public function getCandidateModal($condition){
-    	$query = $this->select('id', 'name', 'old','gender', 'address','picture','free_time','experiences','contact');
+    	$query = $this->select('id', 'name', 'old','gender', 'address','picture','free_time','experiences','contact', 'user_id');
 
-    	if(!empty($condition['keywordCan'])){
-            $query-> where('jobs.name','like', '%'.$condition[""].'%');
+    	if(!empty($condition['addressCan'])){
+            $query-> where('candidates.address','like', '%'.$condition["addressCan"].'%');
         }
 
-        if(!empty($condition['cityCan'])){
-            $query-> where('jobs.location','=', $condition["city"]);
+        if(!empty($condition['dateCan'])){
+            $query-> where('candidates.free_time','=', $condition["dateCan"]);
         } 
 
         if(!empty($condition['oldCan'])){
-        	$query-> where('jobs.salary','like', '%'.$condition["salary"].'%');
+        	$query-> where('candidates.old','like', '%'.$condition["oldCan"].'%');
         } 
-        if(!empty($condition['dateCan'])){
-            $query->where('working_date','=', $condition["date"]);
+        if(!empty($condition['genderCan'])){
+            $query->where('candidates.gender','=', $condition["genderCan"]);
         }   
+        return $query;
+    }
+    
+    public function postProfileModel($condition){
+        $query = $this ->insert(['name'=>$condition['name'], 'address'=>$condition['address'], 'old'=>$condition['old'], 'gender'=>$condition['gender'], 'picture'=>$condition['picture'], 'free_time'=>$condition['free_time'], 'experiences'=>$condition['experiences'], 'contact'=>$condition['contact']]);
+        
         return $query;
     }
 }

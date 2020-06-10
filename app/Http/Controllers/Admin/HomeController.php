@@ -6,10 +6,10 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 
-class UserController extends Controller
+class HomeController extends Controller
 {
     public function view (){
-    	return view('admin.user');
+    	return view('admin.home');
     }
 }
 

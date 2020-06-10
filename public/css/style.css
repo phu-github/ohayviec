@@ -336,6 +336,12 @@ input.btn.btn-success.btn-lg {border-radius: 30px;}
     display: flex;
     justify-content: center;
 }
+
+
+.lable-post-job{
+	color: black !important;
+    font-weight: bold !important;
+}
 /*end post job*/
 
 /*footer*/

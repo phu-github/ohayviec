@@ -13,7 +13,6 @@
 
 
 // Khu vực test
-Route::get('/admin','Admin\UserController@view');
 
 // end test
 
@@ -24,22 +23,18 @@ Route::match(['get','post'],'account/register','Auth\AdminController@CheckRegist
 
 Route::match(['get','post'],'home','JobController@getSearch')->name('searchJob');
 Route::group(['prefix' => 'home'], function(){
+	Route::get( 'amount-job', 'JobController@getAmountJob');
 	Route::get( 'amount-candidate', 'CandidateController@getAmountCandidate');
-	Route::get( 'find-job', 'JobController@fetchJsonFindJob');
-	Route::get( 'find-candidate', 'CandidateController@fetchJsonFindCandidate');
-	Route::get( 'post-job', 'JobController@fetchJsonPostJob');
-	Route::get( 'post-profile', 'CandidateController@fetchJsonPostProfile');
-
+	Route::post( 'post-job', 'JobController@postJob'); // sd ajax
+	Route::post( 'post-profile', 'CandidateController@postProfile');  // sd ajax
+	Route::post( 'search-job', 'JobController@searchJob'); // sd ajax
+	Route::post( 'search-candidate', 'CandidateController@searchCandidate'); // sd ajax
 });
 
-// end khu vuc lam viec
-
-
-Route::group(['middleware' => ['auth.user']], function () {
-    
-});
-
-
-Route::group(['middleware' => ['auth.admin']], function () {
-    
+Route::group(['prefix' => 'admin'], function(){
+	Route::get('','Admin\HomeController@view');
+	Route::get( 'quan-ly-tin', 'Admin\JobController@view');
+	Route::get( 'quan-ly-ho-so', 'Admin\CandidateController@view');
+	Route::get( 'quan-ly-tai-khoan', 'Admin\UserController@view'); 
+	Route::get( 'quan-ly-blog', 'Admin\Blogcontroller@view');  
 });

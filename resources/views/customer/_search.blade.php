@@ -4,7 +4,8 @@
   </div>
   <!-- /.card-header -->
   <div class="card-body">
-    <form role="form">
+    <form method="post" id="search_job_form"> 
+      @csrf
       <div class="row">
         <div class="col-sm-6">
           <!-- text input -->
@@ -13,33 +14,41 @@
             <input type="text" class="form-control" placeholder="Enter ..." name='keyword' value="{{$inputs['keyword']}}">
           </div>
         </div>
+
         <div class="col-sm-6">
         	<div class="form-group">
-				<label><i class="far fa-bell"></i>Chọn quận/huyện</label>
-				<select class="form-control" name="city">
-					<option value="">Tất cả</option> 
-					@foreach ($cities as $cities)
-						<option value="{{$cities->id}}" @if($inputs['city'] == $cities->id){{"selected"}}@endif > {{$cities->name}}</option>  
-					@endforeach 
+				    <label><i class="far fa-bell"></i>Chọn quận/huyện</label>
+				    <select class="form-control" name="city">
+    					<option value="">Tất cả</option> 
+    					@foreach ($cities as $cities)
+    						<option value="{{$cities->id}}" @if($inputs['city'] == $cities->id){{"selected"}}@endif > {{$cities->name}}</option>  
+    					@endforeach 
             </select>
           </div>
         </div>
+
       </div>
+
       <div class="row">
         <div class="col-sm-6">
-           <div class="form-group">
-				<label class="col-form-label" for="inputWarning"><i class="fab fa-airbnb"></i>Nhập lương</label>
-				<input type="text" class="form-control is-warning" name="salary" value="{{$inputs['salary']}}" placeholder="250k...">
-			</div>
+          <div class="form-group">
+    				<label class="col-form-label" ><i class="fab fa-airbnb"></i>Nhập lương</label>
+    				<input type="text" class="form-control " name="salary" value="{{$inputs['salary']}}" placeholder="250k...">
+    			</div>
         </div>
         <div class="col-sm-6">
-                <div class="form-group">
-					<label class="col-form-label" for="inputWarning"><i class="far fa-bell"></i>Ngày làm</label>
-					<input type="text" class="form-control is-warning" id='datetimepicker1' name="" value="{{$inputs['date']}}" placeholder="2020/09/25...">
-				</div>
+          <div class="form-group">
+  					<label class="col-form-label"><i class="far fa-bell"></i>Ngày làm</label>
+            <input id="mutiselectdate_job" class="flatpickr flatpickr-input form-control active" type="text" placeholder="Chọn lịch.."  name="working_date" value="{{$inputs['date']}}">
+  				</div>
         </div>
+
       </div>
-      <input type="submit" class="btn btn-custom" value="Tìm kiếm">
+      
+      <div class=" form-group f1-buttons">
+          <input type="submit" class="btn btn-custom" id="btn_search_job_form"  value="Tìm kiếm">
+      </div>
+     
     </form>
   </div>
   <!-- /.card-body -->
