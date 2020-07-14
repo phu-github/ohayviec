@@ -9,10 +9,32 @@ $(function () {
 			$(".navbar").removeClass("sticky");
 			$("#logo-ohay").css("color","white");
 			$(".navbar-dark .navbar-nav .nav-link").css("color", "white");
+
 		}
 	});
 	
+    // Show or hide menu by left icon 
+    var showIs = true;
+    $(".navbar_toggler_menu").on( "click", function() {
+       if(showIs == true){
+            $(".navbar_menu_list").slideDown();
+            showIs = false;
+       }else{
+            showIs = true;
+            $(".navbar_menu_list").slideUp();
+       }
+    });
+    // Show or hide menu by right icon 
+    $(".navbar_toggler_menu_open").on( "click", function() {
+        $(".account_header").css("display", "block");
+        $(".navbar_toggler_menu_close").css("display", "inline-block");
+        $(".navbar_toggler_menu_open").css("display", "none");
+    });
 
+    $(".navbar_toggler_menu_close").on( "click", function() {
+            $(".account_header").css("display", "none");
+            $(".navbar_toggler_menu_open").css("display", "block");
+    });
 
 	//register form
     if($('#name100').val()){  // kiểm tra có gia trị trong ô input hay không .

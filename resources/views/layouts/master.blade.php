@@ -36,10 +36,21 @@
 @yield('content')
 <!-- end tabs -->
 
+<!-- Thực đơn tiện ích -->
+@include('layouts._utilities')
+<!-- Thực đơn tiện ích -->
+
+<!-- Đối tác -->
+@include('layouts._partner')
+<!-- Đối tác -->
+
 {{-- footer --}}
 @include('layouts._footer')
 {{-- end Footer --}}
 
+{{-- back to top --}}
+@include('layouts._backtotop')
+{{-- end Footer --}}
 </body>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 

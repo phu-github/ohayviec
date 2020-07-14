@@ -30,7 +30,7 @@
           <a href="#" class="nav-link">
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>
-              Danh sách quản lý
+              Danh mục quản lý
               <i class="right fas fa-angle-left"></i>
             </p>
           </a>
@@ -48,15 +48,21 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="http://ohayviec.com/admin/quan-ly-tai-khoan" class="nav-link">
+              <a href="http://ohayviec.com/admin/quan-ly-blog" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
-                <p>Quản lý tài khoản</p>
+                <p>Quản lý blog</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="http://ohayviec.com/admin/quan-ly-blog" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
-                <p>Quản lý blog</p>
+                <p>Quản lý comments</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="http://ohayviec.com/admin/quan-ly-tai-khoan" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Quản lý tài khoản</p>
               </a>
             </li>
           </ul>

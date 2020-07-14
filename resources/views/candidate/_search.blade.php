@@ -1,8 +1,7 @@
-
 <div class="card-customer card-warning">
-  <div class="card-header">
+  <!-- <div class="card-header">
     <h3 class="card-title">Tiêu chí tìm kiếm</h3>
-  </div>
+  </div> -->
   <!-- /.card-header -->
   <div class="card-body">
     <form method="post" id="search_candidate_form">

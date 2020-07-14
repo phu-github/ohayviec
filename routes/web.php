@@ -17,7 +17,11 @@
 // end test
 
 
-// Khu vuecj làm việc
+// Khu vuecj làm việc'
+
+Route::get('/',function(){
+	return  redirect('/home');
+});
 Route::match(['get','post'],'account/login','Auth\AdminController@checkLoginForm');
 Route::match(['get','post'],'account/register','Auth\AdminController@CheckRegisterForm')->name('linkRegister');
 

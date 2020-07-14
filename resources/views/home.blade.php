@@ -16,6 +16,8 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.2.3/flatpickr.css">
   	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.2.3/themes/dark.css">
   	<!--===============================================================================================-->
+  	<link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+  	<!--===============================================================================================-->
 @endsection
 @section('content')
 <!-- big modal -->

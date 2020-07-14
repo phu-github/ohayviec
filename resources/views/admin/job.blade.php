@@ -3,6 +3,36 @@
   <link rel="stylesheet" href="{{ URL::asset('css/admin.css')}}"  type="text/css" />
 @endsection
 @section("content")
+
+<div class="modal fade" id="modal-lg" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Thêm tin vào đây nhé!</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>One fine body…</p>
+              <p>One fine body…</p>
+              <p>One fine body…</p>
+              <p>One fine body…</p>
+              <p>One fine body…</p>
+              <p>One fine body…</p>
+              <p>One fine body…</p>
+              <p>One fine body…</p>
+            </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Thoát</button>
+              <button type="button" class="btn btn-primary">Lưu</button>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+</div>
+
     <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -58,9 +88,14 @@
                           Số lượng
                       </th>
                       <th style="width: 20%">
-                        <button type="button" class="btn btn-success float-right" style="margin-right: 5px;">
-                          <i class="fa fa-plus"></i> Thêm tin
+
+                        <button type="button" class="btn btn-success float-right" data-toggle="modal" data-target="#modal-lg" >
+                          <i class="fa fa-plus"></i> 
+                          Thêm tin
                         </button>
+                        {{-- <button type="button" class=" float-right" style="margin-right: 5px;">
+                          
+                        </button> --}}
                       </th>
                   </tr>
               </thead>
@@ -108,8 +143,8 @@
           </ul>
         </div>
       </div>
-      </div>
-    </section>
+    </div>
+  </section>
 @endsection
 @push("script")
 

@@ -68,7 +68,7 @@ $('#btn_search_job_form').click(function(event){
 			$.each(data, function(i, value){
 				tr += "<tr class="+ "show-modal"+"><td>" + 
 				value.name_job  + "</td><td>" + 
-				value.name_area + "</td><td>" + 
+				value.name_area + "</td><td class="+ "customer_info_salary"+">" + 
 				value.salary +"</td><td>" + 
 				value.working_date +"</td><td>" + 
 				value.number_of_candidate +"</td><td>" + 
@@ -151,7 +151,7 @@ $(document).on('click','#btn_view_more_job',function(event){
 			$.each(data, function(i, value){
 				tr += "<tr class="+ "show-modal"+"><td>" + 
 				value.name_job  + "</td><td>" + 
-				value.name_area + "</td><td>" + 
+				value.name_area + "</td><td class="+ "customer_info_salary"+">" + 
 				value.salary +"</td><td>" + 
 				value.working_date +"</td><td>" + 
 				value.number_of_candidate +"</td><td>" + 
@@ -235,7 +235,7 @@ function fetch_tab(name, dataAttr){
 		$.each(data, function(i, value){
 			tr += "<tr class="+ "show-modal"+"><td>" + 
 			value.name_job  + "</td><td>" + 
-			value.name_area + "</td><td>" + 
+			value.name_area + "</td><td class="+ "customer_info_salary"+">" + 
 			value.salary +"</td><td>" + 
 			value.working_date +"</td><td>" + 
 			value.number_of_candidate +"</td><td>" + 
@@ -312,6 +312,21 @@ function fetch_tab(name, dataAttr){
 
 }
 //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX 
+//
+// 9. XXXXXXXXXXXXXXXXXXX Back to top XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX 
 
+$(window).scroll(function(){
+	    var scrollPos = $(document).scrollTop();
+	    if(scrollPos > 600){
+	    	$(".menu_right_content").hide(300);
+	    	$("#back_to_top").show();
+	    }else{
+	    	$("#back_to_top").hide();
+	    } 
+	});
+$("#back_to_top").click(function(){
+		$("html, body").animate({ scrollTop: 0 }, "slow");
+})
 
+//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX 
 });
