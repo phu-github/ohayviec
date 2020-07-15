@@ -305,7 +305,7 @@ input.btn.btn-success.btn-lg {border-radius: 30px;}
 /*modal*/
 
 .modal-content{
-	width: 50%;
+	width: 100%;
 	height: auto;
 	background-color: #ecf0f1;
 	border-radius: 4px;
@@ -314,14 +314,14 @@ input.btn.btn-success.btn-lg {border-radius: 30px;}
 	box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
 	border-radius: 18px;
 }
-.modal-content h3 {
+/*.modal-content h3 {
 	font-weight: bold;
 	text-align: center;
 	position: relative;
 	margin-top: -20px;
 	color: #27ae60;
 	margin-bottom: 10px;
-}
+}*/
 .row.reset-mp {  
 	margin-right: 0;
 	margin-left: 0;
@@ -490,6 +490,115 @@ input.btn.btn-success.btn-lg {border-radius: 30px;}
 	display: none;
 }
 
+/*modal*/
+
+.modal_block {
+	padding-top: 15px;
+    padding-bottom: 15px;
+    margin-bottom: 5px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+}
+.modal_icon{
+    color: green;
+    padding: 0 21px 45px 0;
+}
+.modal_right_icon_1{
+    color: green;
+    padding: 0 10px 10px 0;
+}
+.modal_right_icon_2{
+	font-size: 10px;
+    color: red;
+    padding: 0 10px 10px 0;
+}
+.modal_right_icon_3{
+    color: #4267B2;
+    padding: 0 10px 10px 0;
+}
+.modal_title_text {
+	font-family: 'Work Sans', sans-serif;
+    font-weight: 700;
+    color: #666666;
+}
+.modal_list_content{
+	font-size: 17.5px;
+    padding-bottom: 9px;
+}
+.modal_list_content h3{ 
+	font-family: 'Work Sans', sans-serif;
+    font-weight: 700;
+}
+
+.modal_right{
+	box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.1);
+}
+
+#btn_show_contact ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#btn_show_contact ul li {    /*modal: show contact button*/
+    --c: #5cb85c;
+    color: var(--c);
+    font-size: 15px;
+    border: 0.1em solid var(--c);
+    border-radius: 7.5em;
+    width: 11em;
+    height: 3em;
+    font-weight: bold;
+    font-family: sans-serif;
+    letter-spacing: 0.1em;
+    text-align: center;
+    line-height: 2.5em;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: 0.5s;
+    margin: 1em;
+}
+
+#btn_show_contact ul li span {
+    position: absolute;
+    width: 25%;
+    height: 100%;
+    background-color: var(--c);
+    transform: translateY(150%);
+    border-radius: 50%;
+    left: calc((var(--n) - 1) * 25%);
+    transition: 0.5s;
+    transition-delay: calc((var(--n) - 1) * 0.1s);
+    z-index: -1;
+}
+
+#btn_show_contact ul li:hover {
+    color: black;
+}
+
+#btn_show_contact ul li:hover span {
+    transform: translateY(0) scale(2);
+}
+
+#btn_show_contact ul li span:nth-child(1) {
+    --n: 1;
+}
+
+#btn_show_contact ul li span:nth-child(2) {
+    --n: 2;
+}
+
+#btn_show_contact ul li span:nth-child(3) {
+    --n: 3;
+}
+
+#btn_show_contact ul li span:nth-child(4) {
+    --n: 4;
+}
+.modal_right p{
+	font-size: 16px;
+}
+/*end modal*/
 @media (max-width: 1200px) {
 	.container-custom {
 		max-width: 85%;
@@ -506,6 +615,9 @@ input.btn.btn-success.btn-lg {border-radius: 30px;}
 	}
 	.text-area {
     	font-size: 42px;
+	}
+	.modal_right p{
+		font-size: 11px;
 	}
 }
 		
@@ -566,7 +678,11 @@ input.btn.btn-success.btn-lg {border-radius: 30px;}
 	.text-area {
     font-size: 25px;
 	}
-
+	
+	.modal_right p{
+		font-size: 11px;
+	}
+	
 @media (max-width: 576px) {
 
 }

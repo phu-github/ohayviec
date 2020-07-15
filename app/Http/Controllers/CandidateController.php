@@ -18,6 +18,7 @@ class CandidateController extends Controller
             'oldCan' => $request->input('oldCan', ''),
         ];
 		$amountCadidate = $cadidate->getCandidateModal($inputs)->count();
+        
     	return response()->json($amountCadidate);
     }
 

@@ -1,3 +1,4 @@
+@include('customer._modal')
 <div id="table_data">
 	<table class="table table-hover">
 		<thead>
@@ -11,7 +12,6 @@
 		    </tr>
 		</thead>
 		<tbody id="customer_info">
-			
 			
 		</tbody>
 	</table>

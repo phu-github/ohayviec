@@ -66,7 +66,7 @@ $('#btn_search_job_form').click(function(event){
 	$.post("home/search-job",$( "#search_job_form" ).serialize(),function(data){
 			var tr="";
 			$.each(data, function(i, value){
-				tr += "<tr class="+ "show-modal"+"><td>" + 
+				tr += "<tr data-fancybox="+ "gallery" + " data-src=#modal"+ value.id +"><td>" + 
 				value.name_job  + "</td><td>" + 
 				value.name_area + "</td><td class="+ "customer_info_salary"+">" + 
 				value.salary +"</td><td>" + 
@@ -131,6 +131,8 @@ $('#btn_search_candidate_form').click(function(event){  // nút search candidate
 // 7. XXXXXXXXXXXXXXXX View more button XXXXXXXXXXXXXXXXX
 $(document).on('click','#btn_view_more_job',function(event){
 	event.preventDefault();
+
+	console.log("thêm modal");
 	var limit = 5;
 	var amountJob = $('#amount-job').text();
 	countPageJob=countPageJob+1;
@@ -149,7 +151,7 @@ $(document).on('click','#btn_view_more_job',function(event){
      		console.log(data);
      		var tr="";
 			$.each(data, function(i, value){
-				tr += "<tr class="+ "show-modal"+"><td>" + 
+				tr += "<tr data-fancybox="+ "gallery" + " data-src=#modal"+ value.id +"><td>" + 
 				value.name_job  + "</td><td>" + 
 				value.name_area + "</td><td class="+ "customer_info_salary"+">" + 
 				value.salary +"</td><td>" + 
@@ -233,7 +235,7 @@ function fetch_tab(name, dataAttr){
 		$.post("home/search-job",$( "#search_job_form" ).serialize(),function(data){
 		var tr="";
 		$.each(data, function(i, value){
-			tr += "<tr class="+ "show-modal"+"><td>" + 
+			tr += "<tr data-fancybox="+ "gallery" + " data-src=#modal"+ value.id +"><td>" + 
 			value.name_job  + "</td><td>" + 
 			value.name_area + "</td><td class="+ "customer_info_salary"+">" + 
 			value.salary +"</td><td>" + 
