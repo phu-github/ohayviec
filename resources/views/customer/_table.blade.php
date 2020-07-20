@@ -8,7 +8,6 @@
 		        <th class="col-xs-1 table-success">Lương</th>
 		        <th class="col-xs-1 table-danger">Ngày đi làm</th>
 		        <th class="col-xs-1 table-warning">Số lượng</th>
-		        <th class="col-xs-1 table-info">Mức độ uy tín</th>
 		    </tr>
 		</thead>
 		<tbody id="customer_info">
@@ -16,6 +15,6 @@
 		</tbody>
 	</table>
 	<div class="row justify-content-sm-center justify-content-md-center">
-		<input class="btn btn-success btn-lg" type="submit" name="xemthem" value="XEM THÊM" id="btn_view_more_job">
+		<input class="btn btn-success btn-lg btn_view_more_job" type="submit" name="xemthem" value="XEM THÊM" >
 	</div>	
 </div>

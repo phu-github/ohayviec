@@ -1,6 +1,5 @@
 $(function () {
 
-
 //1. XXXXXXXXXXXXXXX CSRF XXXXXXXXXXXXXXXXXXXXXXXXX 
 $.ajaxSetup({
 headers: {
@@ -53,7 +52,7 @@ $('.nav-item-avatar').click(function(event) {
 	    mode: "multiple",
 	    dateFormat: "d-m-Y"
     });
-//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXx 
+//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXx tel:+12562548456
 //
 //
 // 6. XXXXXXXXXXXXXXX btn_search_form_job and btn_search_form_candidateXXXXXXXXXXXXXXXXX
@@ -71,8 +70,7 @@ $('#btn_search_job_form').click(function(event){
 				value.name_area + "</td><td class="+ "customer_info_salary"+">" + 
 				value.salary +"</td><td>" + 
 				value.working_date +"</td><td>" + 
-				value.number_of_candidate +"</td><td>" + 
-				value.id +"</td></tr>";
+				value.number_of_candidate +"</td>" ;
 			});
 			$("#customer_info").append(tr);		
 	});
@@ -101,13 +99,12 @@ $('#btn_search_candidate_form').click(function(event){  // nút search candidate
 	$.post("home/search-candidate",$( "#search_candidate_form" ).serialize(),function(data){
 		var tr="";
 		$.each(data, function(i, value){
-			tr += "<tr><td>" + 
+			tr += "<tr data-fancybox="+ "galleryCan" + " data-src=#modalCan"+ value.id +"><td>" +
 			value.name  + "</td><td>" + 
 			value.free_time + "</td><td>" + 
 			value.address +"</td><td>" + 
 			value.old +"</td><td>" + 
-			value.gender +"</td><td>" + 
-			value.id +"</td></tr>";
+			value.gender +"</td>";
 		});
 		$("#candidate_info").append(tr);
 	});	
@@ -129,10 +126,8 @@ $('#btn_search_candidate_form').click(function(event){  // nút search candidate
 //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX 
  
 // 7. XXXXXXXXXXXXXXXX View more button XXXXXXXXXXXXXXXXX
-$(document).on('click','#btn_view_more_job',function(event){
+$(document).on('click','.btn_view_more_job',function(event){
 	event.preventDefault();
-
-	console.log("thêm modal");
 	var limit = 5;
 	var amountJob = $('#amount-job').text();
 	countPageJob=countPageJob+1;
@@ -148,7 +143,6 @@ $(document).on('click','#btn_view_more_job',function(event){
       		working_date : $("input[name='working_date']").val(),
       	},
        	success: function(data){ // What to do if we succeed
-     		console.log(data);
      		var tr="";
 			$.each(data, function(i, value){
 				tr += "<tr data-fancybox="+ "gallery" + " data-src=#modal"+ value.id +"><td>" + 
@@ -156,8 +150,7 @@ $(document).on('click','#btn_view_more_job',function(event){
 				value.name_area + "</td><td class="+ "customer_info_salary"+">" + 
 				value.salary +"</td><td>" + 
 				value.working_date +"</td><td>" + 
-				value.number_of_candidate +"</td><td>" + 
-				value.id +"</td></tr>";
+				value.number_of_candidate +"</td>";
 			});
 			$("#customer_info").append(tr);
 		}
@@ -169,7 +162,7 @@ $(document).on('click','#btn_view_more_job',function(event){
 	// 	$("#btn_view_more_job").show();
 	// }
 });
-$(document).on('click','#btn_view_more_candidate',function(event){
+$(document).on('click','.btn_view_more_candidate',function(event){
 	event.preventDefault();
 	var limit = 10;
 	var amountcandidate = $('#amount-candidate').text();
@@ -188,13 +181,12 @@ $(document).on('click','#btn_view_more_candidate',function(event){
        	success: function(data){ 
        		var tr="";
 			$.each(data, function(i, value){
-				tr += "<tr class="+ "show-modal"+"><td>" + 
+				tr += "<tr data-fancybox="+ "galleryCan" + " data-src=#modalCan"+ value.id +"><td>" +
 				value.name  + "</td><td>" + 
 				value.free_time + "</td><td>" + 
 				value.address +"</td><td>" + 
 				value.old +"</td><td>" + 
-				value.gender +"</td><td>" + 
-				value.id +"</td></tr>";
+				value.gender +"</td>" ;
 			});
 		$("#candidate_info").append(tr);
 		}
@@ -209,10 +201,11 @@ $(document).on('click','#btn_view_more_candidate',function(event){
 //
 //
 // 8. XXXXXXXXXXXXXXXXXXX ajax tab XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX 
+var dataAttr= "";
 fetch_tab("find-job");
 $(document).on('click','.ajax-tab',function(event){
 	event.preventDefault();
-	var dataAttr = $(this).attr('data');  // lây thuoc tinh của the a
+	dataAttr = $(this).attr('data');  // lây thuoc tinh của the a
 	if(dataAttr==1){
 		$("#load-job").show();
 		fetch_tab("find-job", dataAttr);
@@ -240,8 +233,7 @@ function fetch_tab(name, dataAttr){
 			value.name_area + "</td><td class="+ "customer_info_salary"+">" + 
 			value.salary +"</td><td>" + 
 			value.working_date +"</td><td>" + 
-			value.number_of_candidate +"</td><td>" + 
-			value.id +"</td></tr>";
+			value.number_of_candidate +"</td>" ;
 		});
 		$("#customer_info").append(tr);
 	});
@@ -267,13 +259,12 @@ function fetch_tab(name, dataAttr){
 		$.post("home/search-candidate",$( "#search_candidate_form" ).serialize(),function(data){
 			var tr="";
 			$.each(data, function(i, value){
-				tr += "<tr><td>" + 
+				tr += "<tr data-fancybox="+ "galleryCan" + " data-src=#modalCan"+ value.id +"><td>" +
 				value.name  + "</td><td>" + 
 				value.free_time + "</td><td>" + 
 				value.address +"</td><td>" + 
 				value.old +"</td><td>" + 
-				value.gender +"</td><td>" + 
-				value.id +"</td></tr>";
+				value.gender +"</td>";
 			});
 			$("#candidate_info").append(tr);
 		});	
@@ -331,4 +322,5 @@ $("#back_to_top").click(function(){
 })
 
 //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX 
+
 });

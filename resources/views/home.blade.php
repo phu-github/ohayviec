@@ -18,6 +18,8 @@
   	<!--===============================================================================================-->
   	<link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
   	<!--===============================================================================================-->
+  	
+  	<link href="{{asset('plugins/jsrender/samples.css')}}"  rel="stylesheet" />
 @endsection
 @section('content')
 <!-- big modal -->
@@ -45,9 +47,12 @@
 		                        <div class="tab-content">
 		                            <div class="tab-pane" id="find-job">
 										 @include("customer.merge")
+										 <div id="result"></div>   <!--Modal của customer được tao bở Jsrender -->
+												
 		                            </div>
 		                            <div class="tab-pane" id="find-candidate">
 		                                 @include("candidate.merge")
+		                                 <div id="resultCan"></div>   <!--Modal của candidate được tao bở Jsrender -->
 		                            </div>
 		                            <div class="tab-pane" id="post-job">
 		                         		 @include("recruiter.post")
@@ -65,6 +70,8 @@
 	<!-- end tabs -->
 @endsection
 @push('scripts')
+			@include('customer._modal')
+		<script src="{{asset('plugins/jsrender/jsrender.min.js')}}"></script>
 		<!--===============================================================================================-->
 		<script src="{{asset('plugins/bootzard-bootstrap-wizard-template/assets/js/jquery.backstretch.min.js')}}"></script> 
 		<script src="{{asset('plugins/bootzard-bootstrap-wizard-template/assets/js/scripts.js')}}"></script>
@@ -73,6 +80,8 @@
   		<!--===============================================================================================-->
 		<script src="{{asset('js/timviec.js')}}"></script>
 		<!--===============================================================================================-->
+		
+
 @endpush
 
 

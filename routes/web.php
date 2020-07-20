@@ -13,7 +13,9 @@
 
 
 // Khu vực test
-
+Route::get('/test',function(){
+	return  view('shared._template');
+});
 // end test
 
 

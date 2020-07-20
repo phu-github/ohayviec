@@ -16,7 +16,8 @@
 	<link rel="stylesheet" href="{{asset('plugins/icheck-bootstrap/icheck-bootstrap.css')}}" /> {{-- icheck-bootstrap --}}
 	 <!-- Font Awesome -->
     <link rel="stylesheet" href="{{asset('plugins/AdminLTE_302/plugins/fontawesome-free/css/all.min.css')}}">
-
+	
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	@yield('css')
 	<link rel="stylesheet" href="{{asset('css/style.css')}}"  type="text/css" /> <!--css-->
 </head>
@@ -52,8 +53,7 @@
 @include('layouts._backtotop')
 {{-- end Footer --}}
 </body>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+ 
 	<script src="{{asset('plugins/bootstrap/js/bootstrap.js')}}"></script> <!--bootstrap 4 -->
 	<script src="{{asset('plugins/material-bootstrap-wizard-master/assets/js/jquery-2.2.4.min.js')}}"></script> {{-- material-bootstrap-wizard-master js --}}
 	<script src="{{asset('plugins/material-bootstrap-wizard-master/assets/js/bootstrap.min.js')}}"></script>

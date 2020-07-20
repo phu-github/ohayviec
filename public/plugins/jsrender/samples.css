@@ -1,0 +1,145 @@
+body {
+  font-family: 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  padding: 0 0 0 5px;
+  color: #172e40;
+}
+
+label {
+  font-style: italic;
+  font-weight: bold;
+}
+
+table tr {
+  color: #2b587a;
+  height: 25px;
+}
+
+table {
+  border-collapse: collapse;
+  border: 2px solid #7c94a5;
+  padding: 2px;
+  background-color: #fbfdfe;
+  width: 500px;
+}
+
+table.nowidth, table.nowidth input {
+  width: auto;
+}
+
+th {
+  padding: 3px 6px;
+  border: 1px solid #7c94a5;
+  background-color: #edf0f3;
+}
+
+table td {
+  padding: 3px 6px;
+  border: solid #93a0a9 1px;
+}
+
+table input {
+  width: 94%;
+  border: 1px solid #637e92;
+  padding: 4px;
+  height: 15px;
+  color: #172e40
+}
+
+.floatleft {
+  float: left;
+}
+
+td span {
+  display: inline-block;
+  margin: 5px;
+}
+
+td label {
+  color: #172e40;
+  width: 48%;
+  display: inline-block;
+}
+
+td label input {
+  width: 55%;
+  color: #172e40;
+  margin-left: 10px;
+}
+
+td select {
+  width: 100%;
+}
+
+td.center {
+  text-align: center;
+}
+
+.spanbox {
+  border: 1px solid blue;
+  padding: 5px;
+  display: inline-block;
+  margin-top: 8px;
+}
+
+button {
+  cursor: pointer;
+  margin: 2px 2px 6px 2px;
+}
+
+button:not([disabled]) {
+  color: #172e40;
+}
+
+.left {
+  float: left;
+  border: 1px solid grey;
+  padding: 10px 10px 4px 10px;
+  margin: 0 12px 8px -4px;
+}
+
+.left > #result {
+  margin-top: 7px;
+}
+
+input {
+  margin: 1px 0;
+}
+
+li .remove {
+  float: none;
+}
+
+.remove {
+  cursor: pointer;
+  float: right;
+  display: inline-block;
+  margin-top: 3px;
+}
+
+.remove:after {
+  color: #be614c;
+  font-weight: bold;
+  padding: 0 6px 0 6px;
+  content: 'x';
+}
+
+.remove:hover:after {
+  color: red;
+  background-color: #dbffe0;
+}
+
+.add {
+  text-decoration: underline;
+  font-style: italic;
+  cursor: pointer;
+  padding: 0 5px 0 15px;
+}
+
+pre {
+  font-size: 12px;
+}
+
+option {
+  padding-left: 4px;  
+}

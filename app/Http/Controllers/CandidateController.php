@@ -35,7 +35,7 @@ class CandidateController extends Controller
             ];
             $viewMoreCandidate = $request->input('viewMoreCandidate', 0);
             $cities = $area->getCityNameModel();
-            $canditateSearch = $cadidate->getCandidateModal($inputs)->offset($viewMoreCandidate*10)->limit(10)->get(); 
+            $canditateSearch = $cadidate->getCandidateModal($inputs)->offset($viewMoreCandidate*5)->limit(5)->get(); 
             return response()->json($canditateSearch);
     }
 

@@ -21,7 +21,7 @@ class Job extends Model
 
     public function getSearchModel($condition){
         // dd($condition);
-        $query = $this->select('jobs.id','jobs.name as name_job','area.name as name_area' ,'jobs.location','jobs.salary','jobs.unit','jobs.working_date','jobs.number_of_candidate','jobs.description','jobs.benefit','jobs.note','jobs.unit','jobs.contact_phone','jobs.contact_fb','jobs.contact_email', 'user_id')  
+        $query = $this->select('jobs.id','jobs.name as name_job','area.name as name_area' ,'jobs.location','jobs.address','jobs.salary','jobs.unit','jobs.working_date','jobs.number_of_candidate','jobs.description','jobs.benefit','jobs.note','jobs.unit','jobs.contact_phone','jobs.contact_fb','jobs.contact_email', 'user_id')  
             ->join('area', 'jobs.location', '=', 'area.id');                     
 
         if(!empty($condition['keyword'])){
