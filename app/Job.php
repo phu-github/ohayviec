@@ -9,6 +9,7 @@ class Job extends Model
 {
     protected $table = 'jobs';
     protected $primaryKey = 'id';
+    public $timestamps = false;
     protected $fillable = [
     'id','name','user_id','job_code','salary','unit','location',
     'address','working_date','working_hours','start_time','end_time',
@@ -42,9 +43,24 @@ class Job extends Model
     }
 
     public function postJobModel($condition){
-        $query = $this ->insert(['name'=>$condition['name'], 'address'=>$condition['address'], 'salary'=>$condition['salary'], 'working_date'=>$condition['working_date'], 'description'=>$condition['description'], 'note'=>$condition['note'],'contact'=>$condition['contact']]);
-
+        $query = $this ->insert(['name'=>$condition['name'], 'address'=>$condition['address'], 'salary'=>$condition['salary'], 'working_date'=>$condition['working_date'], 'description'=>$condition['description'], 'note'=>$condition['note'],'contact'=>$condition['contact'],'image'=>$condition['image']]);
         return $query;
+    }
+
+    public function viewJobModal($condition){
+         $query = $this->find($condition);
+         return  $query;      
+    }
+    public function updateJobModal($condition, $id){
+        $query = $this->where('id', $id)
+                        ->update(['name'=>$condition['name'], 'address'=>$condition['address'], 'salary'=>$condition['salary'], 'working_date'=>$condition['working_date'], 'number_of_candidate'=>$condition['number_of_candidate'] ,'description'=>$condition['description'], 'note'=>$condition['note'],'contact'=>$condition['contact']]);
+        return  $query;      
+    }
+    public function deleteJobModal($id){
+        dd($id);
+        $query = $this->where('id','=' ,$id)
+                        -> delete();
+        return  $query;      
     }
 
 }

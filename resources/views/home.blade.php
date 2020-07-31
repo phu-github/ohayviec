@@ -70,7 +70,6 @@
 	<!-- end tabs -->
 @endsection
 @push('scripts')
-			@include('customer._modal')
 		<script src="{{asset('plugins/jsrender/jsrender.min.js')}}"></script>
 		<!--===============================================================================================-->
 		<script src="{{asset('plugins/bootzard-bootstrap-wizard-template/assets/js/jquery.backstretch.min.js')}}"></script> 

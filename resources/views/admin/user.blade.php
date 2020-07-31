@@ -10,12 +10,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-8">
-            <h1 class="m-0 text-dark">Quản lý blog</h1>
+            <h1 class="m-0 text-dark">Quản lý tài khoản</h1>
           </div><!-- /.col -->
           <div class="col-sm-4">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Admin</a></li>
-              <li class="breadcrumb-item active">Quản lý blog</li>
+              <li class="breadcrumb-item active">Quản lý tài khoản</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -26,7 +26,7 @@
       <div class="container-fluid">
           <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Danh sách blog</h3>
+          <h3 class="card-title">Danh sách tài khoản</h3>
 
           <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
@@ -35,6 +35,9 @@
               <i class="fas fa-times"></i></button>
           </div>
         </div>
+        @if(session('success'))
+        <div class="alert alert-success notifi">{{session('success')}}</div>
+        @endif
         <div class="card-body p-0">
           <table class="table table-striped projects">
               <thead>
@@ -43,77 +46,80 @@
                           STT
                       </th>
                       <th style="width: 16%">
-                          Tên blog
+                          Tên user
                       </th>
                       <th style="width: 10%">
-                          Nội dung blog 
+                          Loại Đối tác
                       </th>
                       <th style="width: 10%" >
-                          XXX
+                          Địa chỉ
                       </th>
                       <th style="width: 10%" >
-                          XXX
+                          Số điện thoại
                       </th>
                       <th style="width: 10%" >
-                          XXX
+                          Email
                       </th>
                       <th style="width: 20%">
+                        <button type="button" class="btn btn-success float-right addUserBtn" data-toggle="modal" data-target="#modal_add_user" >
+                        <i class="fa fa-plus"></i> 
+                        Thêm tài khoản
+                      </button>
                       </th>
                   </tr>
               </thead>
               <tbody>
+                  @foreach($userData as $key =>$item)
                   <tr>
                       <td>
-                          #
+                        {{$key}}
                       </td>
                       <td>
                           <a>
-                              AdminLTE v3
+                              {{$item->name}}
                           </a>
                           <br>
                           <small>
                               <i class="fa fa-user-circle"></i>
-                              diemduyen@gmail.com
+                              
                           </small>
                       </td>
                       <td>
-                          aaaaaaaaaaaa
+                          
+                          {{$item->priority}}
                       </td>
                       <td >
-                          cssssssssss
+                          {{$item->address}}
                       </td>
                       <td>
-                          dssssssssss
+                          {{$item->phone}}
                       </td>
                       <td >
-                          esssssssssss
+                          {{$item->email}}
                       </td>
-                      <td class="project-actions text-right">
-                          <a class="btn btn-primary btn-sm" href="#">
+                      <td class="project-actions text-right"> 
+                          <a class="btn btn-primary btn-sm viewUserBtn" dataViewId="{{$item->id}}" href="#" data-toggle="modal" data-target="#modal_user">
                               <i class="fas fa-eye"></i>
                               Xem
                           </a>
-                          <a class="btn btn-info btn-sm" href="#">
+                          <a class="btn btn-info btn-sm editUserBtn" attrEditIdUser="{{$item->id}}"  data-toggle="modal" data-target="#modal_user">
                               <i class="fas fa-pencil-alt">
                               </i>
                               Sửa
                           </a>
-                          <a class="btn btn-danger btn-sm" href="#">
+                          <a class="btn btn-danger btn-sm" href="#" data-toggle="modal" data-target="#modal_delete_user">
                               <i class="fas fa-trash">
                               </i>
                               Xóa
                           </a>
                       </td>
                   </tr>
+                  @endforeach
               </tbody>
           </table>
           <div class="card-footer clearfix">
             <ul class="pagination pagination-sm m-0 float-right">
-              <li class="page-item"><a class="page-link" href="#">«</a></li>
-              <li class="page-item"><a class="page-link" href="#">1</a></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item"><a class="page-link" href="#">»</a></li>
+            {{ $userData ->links() }}
             </ul>
           </div>
         </div>
@@ -122,7 +128,11 @@
       </div>
       </div>
     </section>
+    {{-- modal --}}
+@include("admin.modal.modal_user")
+{{-- end modal --}}
 @endsection
 @push("scripts")
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.2.3/flatpickr.js"></script>
+<script src="{{asset('js/admin.js')}}"></script>
 @endpush()

@@ -4,3 +4,6 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+.custom-file-input:lang(en)~.custom-file-label::after {
+    content: "Chọn hình";
+}

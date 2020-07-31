@@ -39,8 +39,24 @@ Route::group(['prefix' => 'home'], function(){
 
 Route::group(['prefix' => 'admin'], function(){
 	Route::get('','Admin\HomeController@view');
-	Route::get( 'quan-ly-tin', 'Admin\JobController@view');
-	Route::get( 'quan-ly-ho-so', 'Admin\CandidateController@view');
-	Route::get( 'quan-ly-tai-khoan', 'Admin\UserController@view'); 
-	Route::get( 'quan-ly-blog', 'Admin\Blogcontroller@view');  
+	Route::get( 'quan-ly-tin', 'Admin\JobController@view')->name('quan-ly-tin'); ;
+	Route::get( 'quan-ly-ho-so', 'Admin\CandidateController@view')->name('quan-ly-ho-so');
+	Route::get( 'quan-ly-tai-khoan', 'Admin\UserController@view')->name('quan-ly-tai-khoan'); 
+	Route::get( 'quan-ly-blog', 'Admin\Blogcontroller@view')->name('quan-ly-blog');
+
+	Route::match(['get','post'], 'edit-job', 'Admin\JobController@editJob');
+	Route::match(['get','post'], 'update-job', 'Admin\JobController@updateJob');
+	Route::match(['get','post'], 'delete-job', 'Admin\JobController@deleteJob');
+	Route::post('addJob',['as' =>'addJob', 'uses'=>'Admin\JobController@addJob']);
+
+	Route::match(['get','post'],'view-can-detail','Admin\CandidateController@viewCan');
+	Route::match(['get','post'], 'edit-can', 'Admin\CandidateController@editCan');
+	Route::match(['get','post'], 'delete-can', 'Admin\CandidateController@deleteCan');
+	Route::post('addCan',['as' =>'addCan', 'uses'=>'Admin\CandidateController@addCan']);
+
+	Route::post('view-user-detail','Admin\UserController@viewUser');
+	Route::post( 'edit-user', 'Admin\UserController@editUser');
+	Route::post( 'update-user', 'Admin\UserController@updateUser');
+	Route::post( 'delete-user', 'Admin\UserController@deleteUser');
+	Route::post('addUser',['as' =>'addUser', 'uses'=>'Admin\UserController@addUser']);
 });

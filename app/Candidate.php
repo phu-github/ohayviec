@@ -35,9 +35,10 @@ class Candidate extends Model
         return $query;
     }
     
-    public function postProfileModel($condition){
+    public function addCanModel($condition){
         $query = $this ->insert(['name'=>$condition['name'], 'address'=>$condition['address'], 'old'=>$condition['old'], 'gender'=>$condition['gender'], 'picture'=>$condition['picture'], 'free_time'=>$condition['free_time'], 'experiences'=>$condition['experiences'], 'contact'=>$condition['contact']]);
-        
         return $query;
     }
+
+
 }

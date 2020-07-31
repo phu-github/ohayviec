@@ -36,31 +36,31 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="http://ohayviec.com/admin/quan-ly-tin" class="nav-link">
+              <a href="http://ohayviec1.com/admin/quan-ly-tin" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Quản lý tin</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="http://ohayviec.com/admin/quan-ly-ho-so" class="nav-link">
+              <a href="http://ohayviec1.com/admin/quan-ly-ho-so" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Quản lý hồ sơ</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="http://ohayviec.com/admin/quan-ly-blog" class="nav-link">
+              <a href="http://ohayviec1.com/admin/quan-ly-blog" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Quản lý blog</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="http://ohayviec.com/admin/quan-ly-blog" class="nav-link">
+              <a href="http://ohayviec1.com/admin/quan-ly-blog" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Quản lý comments</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="http://ohayviec.com/admin/quan-ly-tai-khoan" class="nav-link">
+              <a href="http://ohayviec1.com/admin/quan-ly-tai-khoan" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Quản lý tài khoản</p>
               </a>

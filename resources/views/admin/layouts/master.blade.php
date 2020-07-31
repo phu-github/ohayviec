@@ -6,7 +6,7 @@
     <title>Admin-Ohayviec</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{asset('plugins/AdminLTE_302/plugins/fontawesome-free/css/all.min.css')}}">
     <!-- Ionicons -->
@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="{{asset('plugins/AdminLTE_302/dist/css/adminlte.min.css')}}">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <!-- JsRender -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    {{-- <link href="https://www.jsviews.com/samples/samples.css" rel="stylesheet" /> --}}
     @yield('css')
 </head>
 <body >
@@ -32,10 +35,7 @@
 <!-- end contnents -->
 
 </body>
-
-
-    <script src="{{asset('plugins/AdminLTE_302/')}}"></script> 
-
+    <!-- JSRender -->
     <!-- REQUIRED SCRIPTS -->
     <!-- jQuery -->
     <script src="{{asset('plugins/AdminLTE_302/plugins/jquery/jquery.min.js')}}"></script> 
@@ -58,8 +58,6 @@
 
     <!-- ChartJS -->
     <script src="{{asset('plugins/AdminLTE_302/plugins/chart.js/Chart.min.js')}}"></script> 
-
-    <!-- PAGE SCRIPTS -->
-    <script src="{{asset('plugins/AdminLTE_302/dist/js/pages/dashboard2.js')}}"></script> 
-
+    <script src="https://www.jsviews.com/download/jsrender.min.js"></script>
+    @stack('scripts')
 </html>

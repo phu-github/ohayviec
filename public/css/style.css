@@ -295,9 +295,14 @@ h3.card-title {
   	display:flex;
   	border-radius: 30px;
   	justify-content: center;
+  	margin: 0 auto;
 }
-
-
+.btn_view_more_job{
+	margin: 0 auto !important;
+}
+.btn_view_more_candidate{
+	margin: 0 auto !important;
+}
 input.btn.btn-success.btn-lg {border-radius: 30px;}
 /*end search*/
 /*end tab

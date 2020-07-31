@@ -8,6 +8,9 @@
     text-overflow: ellipsis;
     }
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.2.3/flatpickr.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.2.3/themes/dark.css">
+<link rel="stylesheet" href="{{ URL::asset('css/admin.css')}}"  type="text/css" />
 @endsection
 @section("content")
     <!-- Content Wrapper. Contains page content -->
@@ -65,7 +68,7 @@
                           Giới tinh
                       </th>
                       <th style="width: 20%">
-                        <button type="button" class="btn btn-success float-right" style="margin-right: 5px;">
+                        <button type="button" class="btn btn-success float-right" style="margin-right: 5px;" data-toggle="modal" data-target="#modal_add_can">
                           <i class="fa fa-plus"></i> Thêm hồ sơ
                         </button>
                       </th>
@@ -96,16 +99,16 @@
                           <td>{{$item->old}}</td>
                           <td>{{$item->gender}}</td> 
                           <td class="project-actions text-right">
-                            <a class="btn btn-primary btn-sm" href="#">
+                            <a class="btn btn-primary btn-sm viewDetail" viewDetail="{{$item->id}}" href="#" data-toggle="modal" data-target="#modal_view_can">
                                 <i class="fas fa-eye"></i>
                                 Xem
                             </a>
-                            <a class="btn btn-info btn-sm" href="#">
+                            <a class="btn btn-info btn-sm" id="{{$item->id}}" href="#" data-toggle="modal" data-target="#modal_edit_can">
                                 <i class="fas fa-pencil-alt">
                                 </i>
                                 Sửa
                             </a>
-                            <a class="btn btn-danger btn-sm" href="#">
+                            <a class="btn btn-danger btn-sm deleteDetail" deleteDetail="{{$item->id}}" href="#" data-toggle="modal" data-target="#modal_delete_can">
                                 <i class="fas fa-trash">
                                 </i>
                                 Xóa
@@ -125,7 +128,10 @@
       </div>
       </div>
     </section>
+<!-- iunclude _modal_candidate vào đây -->
+    @include("admin.modal.modal_candidate")
 @endsection
-@push("script")
-
+@push("scripts")
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.2.3/flatpickr.js"></script>
+  <script src="{{asset('js/admin.js')}}"></script>
 @endpush()

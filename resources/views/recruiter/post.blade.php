@@ -48,7 +48,7 @@
                         </div>
                         <div class="form-group col-sm-12 col-md-6">
                             <label class="lable-post-job">Thời gian</label>
-                            <input id="mutiselectdate_post_job" class="flatpickr flatpickr-input active form-control" type="text" placeholder="Chọn lịch.." data-id="enableFunction" readonly="readonly" name="working_date" value="">
+                            <input id="mutiselectdate_post_proflie" class="flatpickr flatpickr-input active form-control" type="text" placeholder="Chọn lịch.." data-id="enableFunction" readonly="readonly" name="working_date" value="">
                         </div>
                     </div>
                     <div class="form-group">

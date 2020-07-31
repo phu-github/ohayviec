@@ -10,10 +10,13 @@ class BlogController extends Controller
     public function view(){
     	return view('admin.blog');
     }
-    public function edit(){
+    public function editBlog(){
     	return view('');
     }
-    public function delete(){
+    public function deleteBlog(){
+		return view('');
+    }
+    public function addBlog(){
 		return view('');
     }
 }
