@@ -63,7 +63,7 @@
     <!-- /.modal-dialog -->
   </div><!-- end modal them -->
   <!-- Modal Sửa -->
-  <div class="modal fade" id="modal_job" style="display: none;" aria-hidden="true">
+  <div class="modal fade" id="modal_update_job" style="display: none;" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
@@ -72,18 +72,39 @@
             <span aria-hidden="true">×</span>
           </button>
         </div>
-        <div class="modal-body " id='htmlJob'>
-      
-        </div>
-        <div class="modal-footer justify-content-between">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Thoát</button>
-          <button type="button" class="btn btn-success editJob">Xác nhận</button>
+        <div class="modal-body " id='htmlUpdateJob'>
+           
         </div>
       </div>
       <!-- /.modal-content -->
     </div>
     <!-- /.modal-dialog -->
   </div> <!--End modal Sửa -->
+  <!-- Modal Sửa -->
+
+<!-- Modal xem -->
+<div class="modal fade" id="modal_view_job" style="display: none;" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="title_job">XEM VIỆC LÀM</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body " id='htmlViewJob'>
+         
+      </div>
+      <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Thoát</button>
+      </div>
+    </div>
+  </div>
+</div> 
+<!-- Modal xem -->
+
+
+
 
   <!--Modal xóa -->
   <div class="modal fade" id="modal_delete_job">

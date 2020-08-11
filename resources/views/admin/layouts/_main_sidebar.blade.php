@@ -47,18 +47,18 @@
                 <p>Quản lý hồ sơ</p>
               </a>
             </li>
-            <li class="nav-item">
+{{--             <li class="nav-item">
               <a href="http://ohayviec1.com/admin/quan-ly-blog" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Quản lý blog</p>
               </a>
-            </li>
-            <li class="nav-item">
+            </li> --}}
+            {{-- <li class="nav-item">
               <a href="http://ohayviec1.com/admin/quan-ly-blog" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Quản lý comments</p>
               </a>
-            </li>
+            </li> --}}
             <li class="nav-item">
               <a href="http://ohayviec1.com/admin/quan-ly-tai-khoan" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
@@ -162,7 +162,7 @@
         </li>
         <li class="nav-header">ĐĂNG XUẤT</li>
         <li class="nav-item">
-          <a href="#" class="nav-link">
+          <a href="{{url('/logout') }}" class="nav-link">
             <i class="nav-icon far fa-circle text-danger"></i>
             <p class="text">Thoát</p>
           </a>

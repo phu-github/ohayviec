@@ -6,6 +6,8 @@ use App\Http\Components\UtilComponent;
 use Illuminate\Http\Request;
 use App\Area;
 use App\Job;
+use App\User;
+use App\Candidate;
 
 		
 
@@ -68,9 +70,34 @@ class JobController extends Controller
 
         }
     }
- 
 
+    public function showPersonalInfo(Request $request){
+        $job = new Job();
+        $user = new User();
+        $can = new Candidate();
+        $userId = $request->user_id;
+        $perInfo = $user ->viewUserModal($userId);  // lấy thông tin có trong bảng user
+        
+        // dữ liệu cho job
+        $perJob = $job-> viewJobByUserIdModal($userId);
+        $countJob = $job-> viewJobByUserIdModal($userId)->count();
+        $dataPerJob =['perJob' => $perJob,'perInfo' => $perInfo];
+        
+        // dữ liệu cho candidate
+        $perCan = $can -> viewCanByUserIdModal($userId);
+        $countCan = $can-> viewCanByUserIdModal($userId)->count();
+        $dataPerCan =['perCan' => $perCan,'perInfo' => $perInfo];
 
+       
+        if($request->priority == 1){
+            return redirect()->route('admin-page');
+        }else if($request->priority == 2){
+            return view('candidate.dashboard',$dataPerCan,compact('countCan'));
+        }else if($request->priority == 3){
+            return view('recruiter.dashboard',$dataPerJob,compact('countJob'));
+        }
+        
+    }
 
 // Khu vực test, có thể xóa
 		

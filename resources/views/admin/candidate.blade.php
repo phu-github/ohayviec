@@ -99,11 +99,11 @@
                           <td>{{$item->old}}</td>
                           <td>{{$item->gender}}</td> 
                           <td class="project-actions text-right">
-                            <a class="btn btn-primary btn-sm viewDetail" viewDetail="{{$item->id}}" href="#" data-toggle="modal" data-target="#modal_view_can">
+                            <a class="btn btn-primary btn-sm viewCanBtn" dataViewId="{{$item->id}}" href="#" data-toggle="modal" data-target="#modal_view_can">
                                 <i class="fas fa-eye"></i>
                                 Xem
                             </a>
-                            <a class="btn btn-info btn-sm" id="{{$item->id}}" href="#" data-toggle="modal" data-target="#modal_edit_can">
+                            <a class="btn btn-info btn-sm updateCanBtn" dataId="{{$item->id}}" href="#" data-toggle="modal" data-target="#modal_update_can">
                                 <i class="fas fa-pencil-alt">
                                 </i>
                                 Sửa

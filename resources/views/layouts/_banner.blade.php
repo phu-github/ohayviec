@@ -5,7 +5,9 @@
 	</video> --}}
 <section class="banner" >
 	<div class="banner-title">
+
 	    <div class="text-area">
+	    	{{-- <img src="{{asset('images/Logo-ohayviec.png')}}" width="100%" > --}}
 	        <span style="color:#ff022c;">O</span>
 	        <span>h</span>
 	        <span>a</span>
@@ -19,7 +21,7 @@
 	        <span>o</span>
 	      	<span>m</span>
     </div>
-		<p class="mini-title"> Tìm nhanh đi, chờ chi</p>
+		{{-- <p class="mini-title"> Tìm nhanh đi, chờ chi</p> --}}
 	</div>
 	<img src="{{asset('images/vue-mk-header.jpg')}}" alt="Banner">
 </section>

@@ -18,7 +18,7 @@ class User extends Authenticatable
     protected $table ="users";
     protected $primaryKey = 'id'; 
     public $timestamps = true;
-    
+    public $remember_token=false;
     protected $fillable = [
         'email', 'password', 'name', 'address', 'phone', 'gender','priority',
     ];
@@ -59,4 +59,7 @@ class User extends Authenticatable
         $query = $this ->insert(['name'=>$condition['name'], 'address'=>$condition['address'], 'email'=>$condition['email'], 'phone'=>$condition['phone'], 'gender'=>$condition['gender'],'priority'=>$condition['priority'],'avatar'=>$condition['avatar']]);
         return $query;
     }
+
+
+
 }

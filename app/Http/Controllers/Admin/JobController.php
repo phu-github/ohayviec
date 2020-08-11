@@ -13,14 +13,28 @@ class JobController extends Controller
     	return view('admin.job',['jobData' => $jobData]);
     }
 
+    public function viewDetailJob(Request $request){
+        $job = new Job();
+        $Id = $request->attrEditId;
+        $jobDetail = $job->viewJobModal($Id);
+        return view('admin.modal._form_view_job', $jobDetail);
+    }
+
     public function editJob(Request $request){
         $job = new Job();
         $Id = $request->attrEditId;
         $jobDetail = $job->viewJobModal($Id);
-    	return view('admin.modal.form_job', $jobDetail);
+    	return view('admin.modal._form_update_job', $jobDetail);
     }
     public function updateJob(Request $request){
         $job = new Job();
+        if($request->hasFile('avatar')){
+            $file = $request->file('avatar');
+            $fileName = $file->getClientOriginalName('avatar');
+            $file ->move('avatar',$fileName);
+            }else{
+
+        }
         $inputs = [
                 'name' => $request->input('name', ''),
                 'address' => $request->input('address', ''),
@@ -30,9 +44,11 @@ class JobController extends Controller
                 'description' => $request->input('description', ''),
                 'note' => $request->input('note', ''),
                 'contact' => $request->input('contact', ''),
+                'image' => isset($fileName)? $fileName : 'imgdefaut.jpg',
             ];
         $Id = $request->attrEditId;
         $jobDetail = $job->updateJobModal($inputs,$Id);
+        return redirect()->route('quan-ly-tin')->with('success', "Sửa việc làm thành công");
     }
 
     public function deleteJob(Request $request){

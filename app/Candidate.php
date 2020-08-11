@@ -14,6 +14,7 @@ class Candidate extends Model
     	'picture','free_time','experiences',
     	'contact', 'status', 'user_id',
     ];
+    public $timestamps = false;
 
     public function getCandidateModal($condition){
     	$query = $this->select('id', 'name', 'old','gender', 'address','picture','free_time','experiences','contact', 'user_id');
@@ -40,5 +41,21 @@ class Candidate extends Model
         return $query;
     }
 
+
+    public function viewCanModal($condition){
+        $query = $this->find($condition);
+        return  $query;  
+    }
+    public function updateCanModal($condition, $id){
+        $query = $this->where('id', $id)
+                        ->update(['name'=>$condition['name'], 'address'=>$condition['address'], 'old'=>$condition['old'], 'gender'=>$condition['gender'], 'picture'=>$condition['picture'], 'free_time'=>$condition['free_time'], 'experiences'=>$condition['experiences'], 'contact'=>$condition['contact'],'picture'=>$condition['picture']]);
+        return  $query;      
+    }
+
+
+    public function viewCanByUserIdModal($userId){
+        $query = $this->where('user_id','=' ,$userId)->get();
+        return  $query;   
+    }
 
 }

@@ -24,88 +24,77 @@ $(function () {
 	    dateFormat: "d-m-Y"
 	});
 
-	$(".notifi").delay(2500);
-  	$(".notifi").slideUp(500);
+	// 2. Thong báo khi thêm tin, hồ sơ, tài khoản thành công xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+		$(".notifi").delay(2500);
+	  	$(".notifi").slideUp(500);
 
 
-	// THÊM JOB VÀ CANDIDATE xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-
-	$('#btn_post_profile').click(function(event){  
-		event.preventDefault();
-		$.post("add-can",$("#form_post_profile").serialize(),function(data){
-			$('#modal_add_can').modal('hide');
-		});
-
-	});	
-	//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-
-	//xxxxxxxxxxxxxxxxxxxx SỬA-XEM-XÓA-THÊM JOBxxxxxxxxxxxxxxxxxxxxxxxx
-	//xxxx xóa
-	// var deleteId = 0;
-	$(document).on('click','#delete_job',function(event){ 
-    event.preventDefault();
-    	var deleteId = $('.deleteJobBtn').attr('deleteId');
-    	console.log("lllol");
-    	console.log(deleteId);
-    	$.ajax({ 
-	      	url: 'delete-job',
-	      	type: "get",
-	      	data: { deleteId: deleteId },
-	       	success: function(data){ // What to do if we succeed
-				
-			}
-		});
-		$('#modal_delete_job').modal('hide');	
-    });
-	//xxxx end xóa
-	//xxxx sửa
-	var attrEditId = 0;
-	$(document).on('click','.editJobBtn',function(event){ 
-    event.preventDefault();
-    	$('.title_job').html("SỬA VIỆC LÀM");
-    	attrEditId = $(this).attr('dataId');
-    	// console.log( attrEditId);
-    	$.ajax({ 
-	      	url: 'edit-job',
-	      	type: "get",
-	      	data: { attrEditId: attrEditId },
-	       	success: function(data){ // What to do if we succeed
-				$('#htmlJob').html(data);
-			}
-		});	
-    });
-	$(document).on('click','.editJob',function(event){
-    event.preventDefault();
-    console.log("xác nhân");
-    console.log(attrEditId);
-    	$.ajax({ 
-	      	url: 'update-job',
-	      	type: "get",
-	      	data: $( "#form_job").serialize()+ '&'+ "attrEditId="+attrEditId,
-	       	success: function(data){ // What to do if we succeed
-				$('#htmlJob').html(data);
-			}
-		});	
-    	$('#modal_job').modal('hide');
-    });
-    //xxxx end sửa
-    //xxxx xem
-    $(document).on('click','.viewJobBtn',function(event){ 
-    	$('.title_job').html("XEM VIỆC LÀM");
-    	var attrEditId = $(this).attr('dataViewId');
-    	console.log( attrEditId);
-    	$.ajax({ 
-	      	url: 'edit-job',
-	      	type: "get",
-	      	data: { attrEditId: attrEditId},
-	       	success: function(data){ // What to do if we succeed
-				$('#htmlJob').html(data);
-				$(".disableInput").attr("disabled", true);
-			}
-		});	
-    });
-    //xxxx end xem
-	//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+	// 3. xxxxxxxxxxxxxxxxxxxx SỬA-XEM-XÓA-THÊM JOBxxxxxxxxxxxxxxxxxxxxxxxx
+		//xxxx xóa
+		// var deleteId = 0;
+		$(document).on('click','#delete_job',function(event){ 
+	    event.preventDefault();
+	    	var deleteId = $('.deleteJobBtn').attr('deleteId');
+	    	console.log("lllol");
+	    	console.log(deleteId);
+	    	$.ajax({ 
+		      	url: 'delete-job',
+		      	type: "get",
+		      	data: { deleteId: deleteId },
+		       	success: function(data){ // What to do if we succeed
+					
+				}
+			});
+			$('#modal_delete_job').modal('hide');	
+	    });
+		//xxxx end xóa
+		//xxxx sửa
+		var attrEditId = 0;
+		$(document).on('click','.editJobBtn',function(event){ 
+	    event.preventDefault();
+	    	attrEditId = $(this).attr('dataId');
+	    	// console.log( attrEditId);
+	    	$.ajax({ 
+		      	url: 'edit-job',
+		      	type: "post",
+		      	data: { attrEditId: attrEditId },
+		       	success: function(data){ // What to do if we succeed
+					$('#htmlUpdateJob').html(data);
+				}
+			});	
+	    });
+		$(document).on('click','.updateJob',function(event){
+	    event.preventDefault();
+	    console.log("xác nhân");
+	    console.log(attrEditId);
+	    	$.ajax({ 
+		      	url: 'update-job',
+		      	type: "post",
+		      	data: $("#form_update_job").serialize()+ '&'+ "attrEditId="+attrEditId,
+		       	success: function(data){ // What to do if we succeed
+					$('#htmlUpdateJob').html(data);
+				}
+			});	
+	    	$('#modal_update_job').modal('hide');
+	    });
+	    //xxxx end sửa
+	    //xxxx xem
+	    $(document).on('click','.viewJobBtn',function(event){ 
+	    	var attrEditId = $(this).attr('dataViewId');
+	    	console.log( attrEditId);
+	    	$.ajax({ 
+		      	url: 'view-job',
+		      	type: "post",
+		      	data: { attrEditId: attrEditId},
+		       	success: function(data){ // What to do if we succeed
+					$('#htmlViewJob').html(data);
+				},
+				error: function (err) {
+                    alert("Error: Lỗi AJAX, dòng 93");
+            }
+			});	
+	    });
+	    //xxxx end xem
 
 
 
@@ -163,5 +152,55 @@ $(function () {
     });
     //xxxx end xem
 	//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+
+	//xxxxxxxxxxxxxxxxxxxx SỬA-XEM-XÓA-THÊM CANDIDATExxxxxxxxxxxxxxxxxxxxxxxx
+	//xxxx sửa
+	$(document).on('click','.updateCanBtn',function(event){ 
+    event.preventDefault();
+    	attrEditId = $(this).attr('dataId');
+    	console.log( attrEditId);
+    	$.ajax({ 
+	      	url: 'edit-can',
+	      	type: "post",
+	      	data: { attrEditId: attrEditId },
+	       	success: function(data){ // What to do if we succeed
+				$('#htmlUpdateCan').html(data);
+			}
+		});	
+    });
+	$(document).on('click','.updateCan',function(event){
+    event.preventDefault();
+    console.log("bbbb");
+    console.log(attrEditId);
+    	$.ajax({ 
+	      	url: 'update-can',
+	      	type: "post",
+	      	data: $("#form_update_can").serialize()+ '&'+ "attrEditId="+attrEditId,
+	       	success: function(data){ // What to do if we succeed
+				$('#htmlUpdateCan').html(data);
+			}
+		});	
+    	$('#modal_update_can').modal('hide');
+    });
+    //xxxx end sửa
+    //xxxx xem
+    $(document).on('click','.viewCanBtn',function(event){ 
+    	var attrEditId = $(this).attr('dataViewId');
+    	console.log(attrEditId);
+    	$.ajax({ 
+	      	url: 'view-can',
+	      	type: "post",
+	      	data: {attrEditId: attrEditId},
+	       	success: function(data){ // What to do if we succeed
+				$('#htmlViewCan').html(data);
+			},
+			error: function (err) {
+                alert("Error: Lỗi AJAX, dòng 93");
+        }
+		});	
+    });
+    //xxxx end xem
+    //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 });

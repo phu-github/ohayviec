@@ -17,11 +17,14 @@ class AdminController extends Controller
     	if($request->isMethod('post')){
 			$credentials = $request->only('email', 'password');
 	    	if (Auth::attempt($credentials)) {
-	            return redirect()->intended('home')->with('user',Auth::user());
-	            // return redirect()->intended('home');
-	            // return view('home',['user'=>Auth::user()]);
+                $permission= Auth::user()['priority'];
+                $userId = Auth::user()['id'];
+                    if($permission == 1){
+                        return redirect()->intended('admin');
+                    }else{
+                        return redirect()->intended('home')->with('user',Auth::user());
+                    }
 	        }else{
-	        	//$error= "Đăng nhập thất bại";
 	        	return view('auth.login',['error'=>"Đăng nhập thất bại. Thử lại nhé!"], $data);
 	        }
     	}
@@ -59,5 +62,12 @@ class AdminController extends Controller
     	}
 
        return view('auth.register', ['inputs'=>$inputs]);
+    }
+
+
+    public function logout() {
+        // dd("aaadu");
+        Auth::logout();
+        return redirect()->route('searchJob');
     }
 }

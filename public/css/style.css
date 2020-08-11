@@ -45,7 +45,12 @@ ol, ul {
 	color: #fff ;
 	font-size: 20px;
 }
-
+#navbar_logo {
+    width: 100px;
+}
+#navbar_logo_img{
+	padding: 5px 10px;
+}
 .navbar_menu_icon{
 	padding : 0 5px;
 }

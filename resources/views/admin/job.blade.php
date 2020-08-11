@@ -96,11 +96,11 @@
                         <td>{{$item->working_date}}</td>
                         <td>{{$item->number_of_candidate}}</td> 
                         <td class="project-actions text-right">
-                          <a class="btn btn-primary btn-sm viewJobBtn" dataViewId="{{$item->id}}" href="#" data-toggle="modal" data-target="#modal_job">
+                          <a class="btn btn-primary btn-sm viewJobBtn" dataViewId="{{$item->id}}" href="#" data-toggle="modal" data-target="#modal_view_job">
                               <i class="fas fa-eye"></i>
                               Xem
                           </a>
-                          <a class="btn btn-info btn-sm editJobBtn" dataId="{{$item->id}}"  data-toggle="modal" data-target="#modal_job">
+                          <a class="btn btn-info btn-sm editJobBtn" dataId="{{$item->id}}"  data-toggle="modal" data-target="#modal_update_job">
                               <i class="fas fa-pencil-alt">
                               </i>
                               Sửa

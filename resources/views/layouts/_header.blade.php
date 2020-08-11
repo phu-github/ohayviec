@@ -1,7 +1,9 @@
 <nav class="navbar navbar-expand-md navbar-dark d-flex justify-content-between" style="margin:0; padding: 0">
 	<!-- Brand -->
 	<img class="navbar_toggler_menu" src="http://ohayviec1.com/images/menu_50px.png" alt="">
-	<a class="navbar_logo_name" href="#">Ohayviec</a>
+	<div id="navbar_logo">
+		<img id="navbar_logo_img" src="{{asset('images/logo-web.png')}}">
+	</div>
 	
   	<!-- Navbar links -->
   	<div class="navbar_menu_list">
@@ -34,23 +36,18 @@
 			<ul>
 				<li class="nav-item">
 					<div class="nav-item-avatar">
-						@if(Auth::check()&& false)
-							<img class="account-box-avatar" src="https://i.pinimg.com/564x/5d/37/23/5d37231bdbad73a26a2d0d3e2ff3e233.jpg" alt="avatar">
-							<div class="account-box">
-								<div class="account-box-content" >
-									<img class="id-avatar" src="https://i.pinimg.com/564x/5d/37/23/5d37231bdbad73a26a2d0d3e2ff3e233.jpg" alt="avatar" style="border-radius: 50%; width: 50px; height: 50px; ">
-									<div class="account-box-content-name">
-										{{Auth::user()->name}}
-									</div>  
-								</div>
-							</div>
+						@if(Auth::check())
+							<a href="{{route('personal-info', ['priority' => Auth::user()->priority, 'user_id'=> Auth::user()->id])}}" style="margin-right: 25px" class="">
+							<img src="https://i.pinimg.com/280x280_RS/eb/68/4f/eb684fdefb1b8014d20c12c6da20ebcc.jpg" width="32" height="32" style="background-color: red">
+							</a> 
 						@else 
-						<a href="http://ohayviec.com/account/login" style="" class="btn btn-success btn-login">
+						<a href="/account/login" style="" class="btn btn-success btn-login">
 							<span >Đăng Nhập</span>
 						</a>
-						<a href="http://ohayviec.com/account/register" style="" class="btn btn-success btn-register">
+						<a href="/account/register" style="" class="btn btn-success btn-register">
 							<span>Đăng Kí</span>
 						</a> 
+						
 							<i class="fa fa-times navbar_menu_icon navbar_toggler_menu_close"></i> 
 						@endif
 					</div>

@@ -53,7 +53,7 @@ class Job extends Model
     }
     public function updateJobModal($condition, $id){
         $query = $this->where('id', $id)
-                        ->update(['name'=>$condition['name'], 'address'=>$condition['address'], 'salary'=>$condition['salary'], 'working_date'=>$condition['working_date'], 'number_of_candidate'=>$condition['number_of_candidate'] ,'description'=>$condition['description'], 'note'=>$condition['note'],'contact'=>$condition['contact']]);
+                        ->update(['name'=>$condition['name'], 'address'=>$condition['address'], 'salary'=>$condition['salary'], 'working_date'=>$condition['working_date'], 'number_of_candidate'=>$condition['number_of_candidate'] ,'description'=>$condition['description'], 'note'=>$condition['note'],'contact'=>$condition['contact'],'image'=>$condition['image']]);
         return  $query;      
     }
     public function deleteJobModal($id){
@@ -61,6 +61,11 @@ class Job extends Model
         $query = $this->where('id','=' ,$id)
                         -> delete();
         return  $query;      
+    }
+
+    public function viewJobByUserIdModal($userId){
+         $query = $this->where('user_id','=' ,$userId)->get();
+         return  $query;   
     }
 
 }
